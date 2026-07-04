@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- ZOOMIE text burst -->
+  <ellipse cx="200" cy="180" rx="120" ry="50" fill="#F5C842" opacity="0.3"/>
+  <text x="200" y="195" text-anchor="middle" font-family="Nunito,sans-serif" font-size="36" font-weight="800" fill="#5C4033">ZO:OOMIE!</text>
+  <!-- Leo excited -->
+  <ellipse cx="160" cy="340" rx="26" ry="8" fill="#35629E" stroke="#2C1810" stroke-width="2"/>
+  <path d="M138 318 L135 340 L185 340 L182 318 Q160 305 138 318Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="160" cy="290" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="150" cy="288" rx="6" ry="7" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="170" cy="288" rx="6" ry="7" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <path d="M148 302 Q160 310 172 302" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <!-- Pip excited -->
+  <ellipse cx="280" cy="350" rx="28" ry="24" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="270" cy="345" rx="10" ry="12" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="290" cy="345" rx="10" ry="12" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <path d="M268 362 Q280 372 292 362" fill="none" stroke="#2C1810" stroke-width="2.5"/>
+  <!-- Green brick -->
+  <rect x="200" y="380" width="32" height="20" rx="3" fill="#6BB86B" stroke="#2C1810" stroke-width="2"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="sunset" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5E6D3"/>
+      <stop offset="100%" stop-color="#E8A598" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#sunset)"/>
+  <circle cx="320" cy="100" r="45" fill="#F5C842" opacity="0.5"/>
+  <rect x="0" y="420" width="400" height="80" fill="#D4C4A8"/>
+  <!-- Pause Pebble -->
+  <ellipse cx="200" cy="280" rx="35" ry="28" fill="#B8A898" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="200" cy="277" rx="35" ry="28" fill="#D4C4A8" stroke="#2C1810" stroke-width="2.5"/>
+  <text x="200" y="285" text-anchor="middle" font-family="Nunito,sans-serif" font-size="10" fill="#5C4033">pause</text>
+  <!-- Pip placing in backpack -->
+  <ellipse cx="280" cy="340" rx="26" ry="22" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <rect x="292" y="348" width="14" height="11" rx="2" fill="#F5C842" stroke="#2C1810" stroke-width="1.5"/>
+  <!-- Leo walking -->
+  <ellipse cx="120" cy="380" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M105 400 L102 430 L118 430 L115 400Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2"/>
+  <path d="M125 400 L122 430 L138 430 L135 400Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="130" cy="438" rx="12" ry="5" fill="#8B5E3C" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="108" cy="438" rx="12" ry="5" fill="#8B5E3C" stroke="#2C1810" stroke-width="1.5"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-style="italic" fill="#5C4033">Will this still matter after</text>
+  <text x="200" y="200" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-style="italic" fill="#5C4033">I've finished my shoes?</text>
+</svg>

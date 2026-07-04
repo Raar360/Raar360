@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "bookId": "book02",
+  "wonder": {
+    "intro": "Wonder together about time and interesting things.",
+    "questions": [
+      {
+        "id": "w1",
+        "text": "Have you ever started one thing and ended up doing something completely different?",
+        "pipPrompt": "Normalise without judgement."
+      },
+      {
+        "id": "w2",
+        "text": "When time seems to zoom past, what does that feel like in your body?",
+        "pipPrompt": "Invite noticing, not fixing."
+      },
+      {
+        "id": "w3",
+        "text": "What might help you pause when something interesting appears?",
+        "pipPrompt": "Celebrate any idea they share."
+      }
+    ]
+  },
+  "pocket": {
+    "reflection": "Sometimes interesting things arrive like a zoomie — and that's okay. You can notice them, pause, and come back to what matters.",
+    "pipLine": "Pip keeps the Pause Pebble safe in the pocket."
+  }
+}

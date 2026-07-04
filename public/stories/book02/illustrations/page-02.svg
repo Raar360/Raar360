@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- Green brick on floor - glowing -->
+  <rect x="220" y="370" width="36" height="22" rx="3" fill="#4E9A4E" stroke="#2C1810" stroke-width="2.5"/>
+  <rect x="218" y="368" width="36" height="22" rx="3" fill="#6BB86B" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="236" cy="380" rx="30" ry="20" fill="#6BB86B" opacity="0.2"/>
+  <!-- Leo reaching for shoes -->
+  <ellipse cx="120" cy="375" rx="26" ry="8" fill="#35629E" stroke="#2C1810" stroke-width="2"/>
+  <path d="M98 352 L95 375 L145 375 L142 352 Q120 340 98 352Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="120" cy="325" rx="20" ry="22" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M105 315 C103 304 112 296 120 296 C128 296 137 304 135 315" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <!-- Pip pointing at brick -->
+  <ellipse cx="300" cy="340" rx="24" ry="20" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="292" cy="336" rx="8" ry="10" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="308" cy="336" rx="8" ry="10" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <circle cx="308" cy="338" r="4" fill="#2C1810"/>
+  <line x1="275" y1="350" x2="218" y2="372" stroke="#2C1810" stroke-width="2" stroke-dasharray="4 3"/>
+</svg>

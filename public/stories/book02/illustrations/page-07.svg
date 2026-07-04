@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- Dad kneeling, kind -->
+  <ellipse cx="200" cy="320" rx="26" ry="28" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M182 308 C180 295 190 286 200 286 C210 286 220 295 218 308" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <path d="M268 302 Q200 280 132 302" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <!-- Speech bubble -->
+  <path d="M120 180 L280 180 Q300 180 300 200 L300 240 Q300 260 280 260 L150 260 L120 280 L125 260 L100 260 Q80 260 80 240 L80 200 Q80 180 100 180 Z" fill="white" stroke="#2C1810" stroke-width="2.5"/>
+  <text x="190" y="210" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" fill="#5C4033">Your brain gets</text>
+  <text x="190" y="228" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" fill="#5C4033">excited by</text>
+  <text x="190" y="246" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" fill="#5C4033">interesting things</text>
+  <!-- Pip relieved -->
+  <ellipse cx="320" cy="370" rx="22" ry="19" fill="#6EB5E0" stroke="#2C1810" stroke-width="2"/>
+  <path d="M312 374 Q320 380 328 374" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <!-- Leo listening -->
+  <ellipse cx="100" cy="370" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- Dad -->
+  <ellipse cx="280" cy="360" rx="28" ry="8" fill="#35629E"/>
+  <path d="M255 335 L252 360 L308 360 L305 335 Q280 322 255 335Z" fill="#4A7FC1" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="280" cy="305" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M262 295 C260 282 270 272 280 272 C290 272 300 282 298 295" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <path d="M268 302 Q280 310 292 302" fill="#6B4423" opacity="0.5"/>
+  <!-- Leo -->
+  <ellipse cx="140" cy="370" rx="28" ry="8" fill="#35629E" stroke="#2C1810" stroke-width="2"/>
+  <path d="M115 345 L112 370 L168 370 L165 345 Q140 332 115 345Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="140" cy="315" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M122 305 C120 292 130 282 140 282 C150 282 160 292 158 305" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <!-- Shoes on floor -->
+  <ellipse cx="120" cy="395" rx="18" ry="8" fill="#8B5E3C" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="155" cy="395" rx="18" ry="8" fill="#8B5E3C" stroke="#2C1810" stroke-width="2"/>
+  <!-- Speech -->
+  <path d="M230 260 L330 260 Q350 260 350 280 L350 295 Q350 310 330 310 L250 310 L230 325 L235 310 L210 310 Q190 310 190 295 L190 280 Q190 260 210 260 Z" fill="white" stroke="#2C1810" stroke-width="2.5"/>
+  <text x="270" y="288" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" fill="#5C4033">Put on your</text>
+  <text x="270" y="302" text-anchor="middle" font-family="Nunito,sans-serif" font-size="12" fill="#5C4033">shoes, Leo</text>
+</svg>

@@ -1,0 +1,8 @@
+{
+  "id": "book02",
+  "title": "ZOOMIE!",
+  "object": "green-brick",
+  "characters": ["leo", "pip"],
+  "ageRange": { "min": 6, "max": 10 },
+  "tags": ["time-blindness", "focus", "green-brick"]
+}

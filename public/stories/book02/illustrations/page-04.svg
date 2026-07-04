@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- Spaceship from bricks -->
+  <path d="M180 280 L200 220 L220 280 Z" fill="#6BB86B" stroke="#2C1810" stroke-width="2"/>
+  <rect x="190" y="278" width="20" height="30" fill="#6BB86B" stroke="#2C1810" stroke-width="2"/>
+  <!-- Cat Marmalade -->
+  <ellipse cx="100" cy="350" rx="25" ry="18" fill="#E8A84C" stroke="#2C1810" stroke-width="2"/>
+  <circle cx="88" cy="340" r="3" fill="#2C1810"/>
+  <circle cx="112" cy="340" r="3" fill="#2C1810"/>
+  <path d="M85 330 L80 318 M115 330 L120 318" stroke="#2C1810" stroke-width="2"/>
+  <!-- Star blanket tent -->
+  <path d="M280 360 L320 300 L360 360 Z" fill="#4A7FC1" opacity="0.6" stroke="#2C1810" stroke-width="2"/>
+  <circle cx="300" cy="330" r="3" fill="#F5C842"/>
+  <circle cx="320" cy="320" r="2" fill="#F5C842"/>
+  <circle cx="340" cy="335" r="3" fill="#F5C842"/>
+  <!-- Leo happy in middle -->
+  <ellipse cx="200" cy="370" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M192 378 Q200 386 208 378" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="310" cy="385" rx="18" ry="15" fill="#6EB5E0" stroke="#2C1810" stroke-width="2"/>
+</svg>

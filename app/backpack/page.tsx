@@ -25,6 +25,7 @@ export default function BackpackPage() {
           }, {}),
         );
       })
+      .catch(() => setBooks([]))
       .finally(() => setLoading(false));
   }, []);
 
@@ -39,6 +40,10 @@ export default function BackpackPage() {
       </Typography>
       {loading ? (
         <Typography variant="subtitle">Loading stories…</Typography>
+      ) : books.length === 0 ? (
+        <Typography variant="subtitle">
+          No stories found. Pull down to refresh, or check your connection.
+        </Typography>
       ) : (
         <StoryObjectGrid books={books} progressMap={progressMap} />
       )}

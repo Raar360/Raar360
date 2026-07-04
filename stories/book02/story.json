@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "bookId": "book02",
+  "transition": "slide",
+  "pages": [
+    {
+      "id": "page-01",
+      "illustration": "illustrations/page-01.svg",
+      "text": "\"Leo, please put on your shoes,\" said Dad. Leo nodded. He was trying his best.",
+      "pipExpression": "neutral"
+    },
+    {
+      "id": "page-02",
+      "illustration": "illustrations/page-02.svg",
+      "text": "Leo reached for his shoes. Then Pip noticed something on the floor — a green brick.",
+      "pipExpression": "curious"
+    },
+    {
+      "id": "page-03",
+      "illustration": "illustrations/page-03.svg",
+      "text": "\"ZO:OOMIE!\" whispered Pip. Leo's brain lit up. The brick looked very interesting indeed.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-04",
+      "illustration": "illustrations/page-04.svg",
+      "text": "Soon Leo was building a spaceship. Then playing with Marmalade the cat. Then camping under a star blanket.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-05",
+      "illustration": "illustrations/page-05.svg",
+      "text": "To Leo and Pip, it felt like thirty seconds. One wonderful thing led to another.",
+      "pipExpression": "curious"
+    },
+    {
+      "id": "page-06",
+      "illustration": "illustrations/page-06.svg",
+      "text": "Dad came back. \"Ten minutes have passed,\" he said gently. Leo's shoes were still waiting.",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-07",
+      "illustration": "illustrations/page-07.svg",
+      "text": "\"Your brain isn't being naughty,\" Dad said. \"It just gets excited by interesting things.\" Pip looked relieved.",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-08",
+      "illustration": "illustrations/page-08.svg",
+      "text": "Pip popped something into the pocket — a Pause Pebble. \"A little reminder,\" Pip smiled. \"Will this still matter after I've finished my shoes?\"",
+      "pipExpression": "gentle"
+    }
+  ]
+}

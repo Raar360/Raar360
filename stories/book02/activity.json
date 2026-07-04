@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "bookId": "book02",
+  "type": "tap-explore",
+  "title": "Explore the Journey",
+  "instructions": "Tap each spot. Leo and Pip took quite a journey — no wrong way to explore.",
+  "background": "illustrations/activity-bg.svg",
+  "hotspots": [
+    {
+      "id": "shoes",
+      "label": "Shoes",
+      "x": 20,
+      "y": 75,
+      "revealText": "The shoes were waiting the whole time — they didn't mind."
+    },
+    {
+      "id": "brick",
+      "label": "Green brick",
+      "x": 50,
+      "y": 50,
+      "revealText": "The green brick was interesting — and that is okay."
+    },
+    {
+      "id": "pebble",
+      "label": "Pause Pebble",
+      "x": 80,
+      "y": 70,
+      "revealText": "A pause can help your brain choose what matters next."
+    }
+  ]
+}
