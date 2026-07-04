@@ -7,7 +7,7 @@
       "id": "page-01",
       "scene": {
         "id": "scene-01",
-        "background": { "id": "leo-bedroom", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-01",
@@ -15,7 +15,10 @@
             "pose": "standing",
             "expression": "excited",
             "position": "left",
-            "animation": { "id": "leo-float", "preset": "float" }
+            "animation": {
+              "id": "leo-float",
+              "preset": "float"
+            }
           },
           {
             "id": "pip-01",
@@ -23,7 +26,10 @@
             "pose": "floating",
             "expression": "excited",
             "position": "right",
-            "animation": { "id": "pip-float", "preset": "float" }
+            "animation": {
+              "id": "pip-float",
+              "preset": "float"
+            }
           }
         ],
         "dialogue": "narration"
@@ -34,7 +40,7 @@
       "id": "page-02",
       "scene": {
         "id": "scene-02",
-        "background": { "id": "hallway-door", "category": "background" },
+        "background": "hallway",
         "characters": [
           {
             "id": "leo-02",
@@ -56,16 +62,22 @@
             "pose": "kitchen-call",
             "expression": "smiling",
             "position": "far-right",
-            "transform": { "scale": 0.85, "zIndex": 10 }
+            "transform": {
+              "scale": 0.85,
+              "zIndex": 10
+            }
           }
         ],
         "dialogue": "mixed",
         "speechBubbles": [
           {
             "id": "dad-bubble",
-            "asset": { "id": "shout-bubble", "category": "speech-bubble" },
-            "position": { "x": 75, "y": 35 },
-            "text": "Morning, Leo!"
+            "position": {
+              "x": 75,
+              "y": 35
+            },
+            "text": "Morning, Leo!",
+            "assetId": "shout-bubble"
           }
         ]
       },
@@ -75,7 +87,7 @@
       "id": "page-03",
       "scene": {
         "id": "scene-03",
-        "background": { "id": "hallway", "category": "background" },
+        "background": "hallway",
         "characters": [
           {
             "id": "leo-03",
@@ -90,26 +102,35 @@
             "pose": "peering",
             "expression": "curious",
             "position": "right",
-            "animation": { "id": "pip-peering", "preset": "float" }
+            "animation": {
+              "id": "pip-peering",
+              "preset": "float"
+            }
           }
         ],
-        "objects": [
-          {
-            "id": "green-brick-03",
-            "asset": { "id": "green-brick", "category": "object" },
-            "position": "center",
-            "transform": { "zIndex": 15 }
-          }
-        ],
+        "objects": [],
         "speechBubbles": [
           {
             "id": "pip-look",
-            "asset": { "id": "whisper-bubble", "category": "speech-bubble" },
-            "position": { "x": 72, "y": 45 },
-            "text": "Look!"
+            "position": {
+              "x": 72,
+              "y": 45
+            },
+            "text": "Look!",
+            "assetId": "whisper-bubble"
           }
         ],
-        "dialogue": "mixed"
+        "dialogue": "mixed",
+        "props": [
+          {
+            "id": "green-brick-03",
+            "position": "center",
+            "transform": {
+              "zIndex": 15
+            },
+            "assetId": "green-brick"
+          }
+        ]
       },
       "text": "Halfway there…\n\nPip stopped.\n\nHis big eyes grew even bigger.\n\nOn the floor sat a tiny green Lego brick.\n\n\"Look!\" whispered Pip.\n\nLeo picked it up carefully.\n\n\"I've been looking for this!\""
     },
@@ -117,7 +138,7 @@
       "id": "page-04",
       "scene": {
         "id": "scene-04",
-        "background": { "id": "leo-bedroom", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-04",
@@ -137,9 +158,12 @@
         "props": [
           {
             "id": "spaceship-04",
-            "asset": { "id": "spaceship", "category": "prop" },
             "position": "center",
-            "transform": { "scale": 1.2, "zIndex": 12 }
+            "transform": {
+              "scale": 1.2,
+              "zIndex": 12
+            },
+            "assetId": "spaceship"
           }
         ],
         "dialogue": "narration"
@@ -150,7 +174,7 @@
       "id": "page-05",
       "scene": {
         "id": "scene-05",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-05",
@@ -165,29 +189,50 @@
             "pose": "floating",
             "expression": "excited",
             "position": "right",
-            "animation": { "id": "pip-excited", "preset": "float" }
+            "animation": {
+              "id": "pip-excited",
+              "preset": "float"
+            }
           }
         ],
         "props": [
           {
             "id": "bricks-05",
-            "asset": { "id": "bricks-pile", "category": "prop" },
-            "position": { "x": 50, "y": 78 },
-            "transform": { "scale": 1.4, "zIndex": 11 }
+            "position": {
+              "x": 50,
+              "y": 78
+            },
+            "transform": {
+              "scale": 1.4,
+              "zIndex": 11
+            },
+            "assetId": "bricks-pile"
           },
           {
             "id": "spaceship-05",
-            "asset": { "id": "spaceship", "category": "prop" },
-            "position": { "x": 55, "y": 55 },
-            "transform": { "scale": 1.5, "zIndex": 13 }
+            "position": {
+              "x": 55,
+              "y": 55
+            },
+            "transform": {
+              "scale": 1.5,
+              "zIndex": 13
+            },
+            "assetId": "spaceship"
           }
         ],
         "effects": [
           {
             "id": "sparkle-05",
-            "asset": { "id": "sparkle", "category": "effect" },
-            "position": { "x": 60, "y": 40 },
-            "animation": { "id": "sparkle-anim", "preset": "sparkle" }
+            "position": {
+              "x": 60,
+              "y": 40
+            },
+            "animation": {
+              "id": "sparkle-anim",
+              "preset": "sparkle"
+            },
+            "assetId": "sparkle"
           }
         ],
         "dialogue": "narration"
@@ -198,7 +243,7 @@
       "id": "page-06",
       "scene": {
         "id": "scene-06",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-06",
@@ -218,9 +263,12 @@
         "props": [
           {
             "id": "spaceship-06",
-            "asset": { "id": "spaceship", "category": "prop" },
             "position": "center",
-            "transform": { "scale": 1.6, "zIndex": 12 }
+            "transform": {
+              "scale": 1.6,
+              "zIndex": 12
+            },
+            "assetId": "spaceship"
           }
         ],
         "dialogue": "narration"
@@ -231,7 +279,7 @@
       "id": "page-07",
       "scene": {
         "id": "scene-07",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-07",
@@ -253,15 +301,24 @@
             "pose": "in-box",
             "expression": "content",
             "position": "center",
-            "transform": { "scale": 1.3, "zIndex": 25 }
+            "transform": {
+              "scale": 1.3,
+              "zIndex": 25
+            }
           }
         ],
         "props": [
           {
             "id": "box-07",
-            "asset": { "id": "cardboard-box", "category": "prop" },
-            "position": { "x": 50, "y": 70 },
-            "transform": { "scale": 1.5, "zIndex": 10 }
+            "position": {
+              "x": 50,
+              "y": 70
+            },
+            "transform": {
+              "scale": 1.5,
+              "zIndex": 10
+            },
+            "assetId": "cardboard-box"
           }
         ],
         "dialogue": "narration"
@@ -272,7 +329,7 @@
       "id": "page-08",
       "scene": {
         "id": "scene-08",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-08",
@@ -293,16 +350,28 @@
             "character": "whiskers",
             "pose": "in-box",
             "expression": "content",
-            "position": { "x": 55, "y": 75 },
-            "transform": { "scale": 1.2, "zIndex": 20 }
+            "position": {
+              "x": 55,
+              "y": 75
+            },
+            "transform": {
+              "scale": 1.2,
+              "zIndex": 20
+            }
           }
         ],
         "effects": [
           {
             "id": "giggle-08",
-            "asset": { "id": "giggle-lines", "category": "effect" },
-            "position": { "x": 50, "y": 30 },
-            "animation": { "id": "giggle-anim", "preset": "float" }
+            "position": {
+              "x": 50,
+              "y": 30
+            },
+            "animation": {
+              "id": "giggle-anim",
+              "preset": "float"
+            },
+            "assetId": "giggle-lines"
           }
         ],
         "dialogue": "narration"
@@ -313,7 +382,7 @@
       "id": "page-09",
       "scene": {
         "id": "scene-09",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-09",
@@ -335,15 +404,24 @@
             "pose": "doorway",
             "expression": "gentle",
             "position": "far-right",
-            "transform": { "scale": 0.9, "zIndex": 10 }
+            "transform": {
+              "scale": 0.9,
+              "zIndex": 10
+            }
           }
         ],
         "props": [
           {
             "id": "spaceship-09",
-            "asset": { "id": "spaceship", "category": "prop" },
-            "position": { "x": 45, "y": 65 },
-            "transform": { "scale": 1.4, "zIndex": 11 }
+            "position": {
+              "x": 45,
+              "y": 65
+            },
+            "transform": {
+              "scale": 1.4,
+              "zIndex": 11
+            },
+            "assetId": "spaceship"
           }
         ],
         "dialogue": "narration"
@@ -354,7 +432,7 @@
       "id": "page-10",
       "scene": {
         "id": "scene-10",
-        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-10",
@@ -362,7 +440,9 @@
             "pose": "slippers",
             "expression": "gentle",
             "position": "center",
-            "transform": { "zIndex": 30 }
+            "transform": {
+              "zIndex": 30
+            }
           },
           {
             "id": "pip-10",
@@ -380,7 +460,7 @@
       "id": "page-11",
       "scene": {
         "id": "scene-11",
-        "background": { "id": "leo-bedroom", "category": "background" },
+        "background": "bedroom",
         "characters": [
           {
             "id": "leo-11",
@@ -402,7 +482,10 @@
             "pose": "kneeling",
             "expression": "gentle",
             "position": "far-right",
-            "transform": { "scale": 0.85, "zIndex": 10 }
+            "transform": {
+              "scale": 0.85,
+              "zIndex": 10
+            }
           }
         ],
         "dialogue": "narration"
@@ -413,7 +496,7 @@
       "id": "page-12",
       "scene": {
         "id": "scene-12",
-        "background": { "id": "hallway", "category": "background" },
+        "background": "hallway",
         "characters": [
           {
             "id": "leo-12",
@@ -435,18 +518,28 @@
             "pose": "winking",
             "expression": "smiling",
             "position": "far-right",
-            "transform": { "scale": 0.85, "zIndex": 10 }
+            "transform": {
+              "scale": 0.85,
+              "zIndex": 10
+            }
           }
         ],
-        "objects": [
+        "objects": [],
+        "dialogue": "narration",
+        "props": [
           {
             "id": "green-brick-12",
-            "asset": { "id": "green-brick", "category": "object" },
-            "position": { "x": 78, "y": 68 },
-            "transform": { "scale": 0.7, "zIndex": 35 }
+            "position": {
+              "x": 78,
+              "y": 68
+            },
+            "transform": {
+              "scale": 0.7,
+              "zIndex": 35
+            },
+            "assetId": "green-brick"
           }
-        ],
-        "dialogue": "narration"
+        ]
       },
       "text": "Dad picked up the little green brick.\n\nHe placed it gently into Pip's tiny backpack.\n\n\"Looks like today's adventure started here.\"\n\nLeo smiled.\n\n\"It was a really good adventure.\"\n\nPip smiled too.\n\n\"It was.\"\n\nDad winked.\n\n\"And next time…\"\n\nLeo laughed.\n\n\"…maybe the shoes can come first.\"\n\nPip zipped up the backpack.\n\nAnother adventure. Another treasure. Another story to remember."
     }

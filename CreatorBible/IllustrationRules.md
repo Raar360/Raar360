@@ -2,7 +2,11 @@
 
 ## Philosophy
 
-Scenes are composed from reusable assets — never one-off baked illustrations. Every visual element should exist in the Asset Library so future stories and animations can reuse it.
+Scenes are composed from reusable assets registered in `assets/registry.json` — never one-off baked illustrations.
+
+## Scene composition
+
+Each scene references **Asset Registry IDs only** — never file paths or image URLs.
 
 ## Scene Composition
 
@@ -19,14 +23,13 @@ Each scene layer is ordered bottom to top:
 
 ## Asset Categories
 
-| Category | Examples | Format |
-|----------|----------|--------|
-| Characters | Leo, Pip, Dad, Mum, Whiskers | React SVG components + pose variants |
-| Backgrounds | Hallway, Leo's bedroom | SVG `#FAF3E8` + floor line |
-| Props | Cardboard box, spaceship, bricks pile | SVG |
-| Objects | Green brick, radio, volcano | SVG (also used on backpack grid) |
-| Speech bubbles | Shout, whisper, thought | SVG with optional text |
-| Effects | Sparkle, giggle lines, zoomie text | SVG (animated in future) |
+| Category | Examples | Registry category |
+|----------|----------|-------------------|
+| Characters | Leo, Pip, Dad, Mum, Whiskers | `character` |
+| Backgrounds | Bedroom, Hallway, Kitchen, Garden | `background` |
+| Props | Shoes, Green Brick, Spaceship, Cardboard Box, Backpack | `prop` |
+| Speech bubbles | Shout, whisper | `speech-bubble` |
+| Effects | Sparkle, giggle lines | `effect` |
 
 ## Panel Specifications
 

@@ -5,8 +5,7 @@ import type { StoryPage as StoryPageType, StoryTransition } from "@/types";
 import { Pip } from "@/components/characters/Pip";
 import { StoryIllustration } from "./StoryIllustration";
 import { StoryText } from "./StoryText";
-import { SceneRenderer } from "@/components/scene/SceneRenderer";
-import { useAssetManifest } from "@/components/scene/useAssetManifest";
+import { ScenePreview } from "@/components/scene/ScenePreview";
 import { pageVariants } from "@/lib/utils/motion";
 import { toPipExpression } from "@/lib/scene/characters";
 
@@ -19,7 +18,6 @@ interface StoryPageProps {
 export function StoryPage({ bookId, page, transition }: StoryPageProps) {
   const reduceMotion = useReducedMotion();
   const variant = pageVariants[transition];
-  const { assetMap, loading } = useAssetManifest();
   const alt = page.text.split(".")[0];
 
   const pipOverlayExpression =
@@ -36,8 +34,8 @@ export function StoryPage({ bookId, page, transition }: StoryPageProps) {
         transition={variant.transition}
         className="flex flex-col gap-6"
       >
-        {page.scene && !loading ? (
-          <SceneRenderer scene={page.scene} assetMap={assetMap} alt={alt} />
+        {page.scene ? (
+          <ScenePreview scene={page.scene} alt={alt} />
         ) : page.illustration ? (
           <StoryIllustration bookId={bookId} src={page.illustration} alt={alt} />
         ) : (

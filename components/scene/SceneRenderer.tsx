@@ -2,20 +2,21 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import type { AssetEntry, Scene, SceneAnimation, SceneLayer } from "@/types";
+import type { AssetRegistryEntry, Scene, SceneAnimation, SceneLayer } from "@/types";
 import { Leo } from "@/components/characters/Leo";
 import { Pip } from "@/components/characters/Pip";
 import { Dad } from "@/components/characters/Dad";
+import { Mum } from "@/components/characters/Mum";
 import { Whiskers } from "@/components/characters/Whiskers";
 import { comicPanelClass } from "@/lib/art/style";
-import { getAssetUrl } from "@/lib/utils/assets";
+import { getRegistryAssetUrl } from "@/lib/assets/resolve";
 import { leoPoseToVariant, toPipExpression } from "@/lib/scene/characters";
 import { applyTransform, positionToStyle, resolvePosition } from "@/lib/scene/position";
 import { cn } from "@/lib/utils/cn";
 
 interface SceneRendererProps {
   scene: Scene;
-  assetMap: Map<string, AssetEntry>;
+  registry: Map<string, AssetRegistryEntry>;
   alt: string;
   className?: string;
 }
@@ -45,13 +46,13 @@ function AssetImage({
   className,
   animation,
 }: {
-  entry: AssetEntry;
+  entry: AssetRegistryEntry;
   alt: string;
   className?: string;
   animation?: SceneAnimation;
 }) {
   const reduceMotion = useReducedMotion();
-  const url = getAssetUrl(entry);
+  const url = getRegistryAssetUrl(entry);
   if (!url) return null;
 
   const motionProps = animationProps(animation, reduceMotion);
@@ -65,51 +66,90 @@ function AssetImage({
 
 function SceneLayerElement({
   layer,
-  assetMap,
+  registry,
   defaultSize,
 }: {
   layer: SceneLayer;
-  assetMap: Map<string, AssetEntry>;
+  registry: Map<string, AssetRegistryEntry>;
   defaultSize: string;
 }) {
-  const entry = assetMap.get(layer.asset.id);
+  const entry = registry.get(layer.assetId);
   if (!entry) return null;
 
-  const isPip = false;
-  const coords = resolvePosition(layer.position, isPip);
+  const coords = resolvePosition(layer.position, false);
   const style = applyTransform(positionToStyle(coords), layer.transform);
   const reduceMotion = useReducedMotion();
   const motionProps = animationProps(layer.animation, reduceMotion);
 
-  const sizeClass = layer.transform?.scale
-    ? defaultSize
-    : defaultSize;
-
   return (
     <motion.div
-      key={layer.id}
-      className={cn("absolute", sizeClass)}
+      className={cn("absolute", defaultSize)}
       style={{ ...style, zIndex: layer.transform?.zIndex ?? 20 }}
       {...motionProps}
     >
       {layer.text && entry.category === "speech-bubble" ? (
-        <div className="relative">
+        <div className="relative h-full w-full">
           <AssetImage entry={entry} alt={layer.text} />
           <span className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-warm-brown">
             {layer.text}
           </span>
         </div>
       ) : (
-        <AssetImage entry={entry} alt={entry.label} animation={layer.animation} />
+        <AssetImage entry={entry} alt={entry.name} animation={layer.animation} />
       )}
     </motion.div>
   );
 }
 
-export function SceneRenderer({ scene, assetMap, alt, className }: SceneRendererProps) {
+function CharacterLayer({
+  characterId,
+  pose,
+  expression,
+  position,
+  transform,
+  animation,
+}: {
+  characterId: string;
+  pose: string;
+  expression?: string;
+  position: Scene["characters"][0]["position"];
+  transform?: Scene["characters"][0]["transform"];
+  animation?: SceneAnimation;
+}) {
   const reduceMotion = useReducedMotion();
-  const bgEntry = assetMap.get(scene.background.id);
-  const bgUrl = bgEntry ? getAssetUrl(bgEntry) : null;
+  const coords = resolvePosition(position, characterId === "pip");
+  const style = applyTransform(positionToStyle(coords), transform);
+  const motionProps = animationProps(animation, reduceMotion);
+
+  const sizeClass =
+    characterId === "pip"
+      ? "h-20 w-20 sm:h-24 sm:w-24"
+      : characterId === "whiskers"
+        ? "h-14 w-20 sm:h-16 sm:w-24"
+        : characterId === "dad" || characterId === "mum"
+          ? "h-32 w-20 sm:h-36 sm:w-24"
+          : "h-28 w-20 sm:h-32 sm:w-24";
+
+  return (
+    <motion.div
+      className={cn("absolute", sizeClass)}
+      style={{ ...style, zIndex: transform?.zIndex ?? 30 }}
+      {...motionProps}
+    >
+      {characterId === "leo" && <Leo variant={leoPoseToVariant(pose)} className="drop-shadow-sm" />}
+      {characterId === "pip" && (
+        <Pip expression={toPipExpression(expression)} size="lg" className="!h-full !w-full" />
+      )}
+      {characterId === "dad" && <Dad variant={pose} className="drop-shadow-sm" />}
+      {characterId === "mum" && <Mum variant={pose} className="drop-shadow-sm" />}
+      {characterId === "whiskers" && <Whiskers variant={pose} className="drop-shadow-sm" />}
+    </motion.div>
+  );
+}
+
+export function SceneRenderer({ scene, registry, alt, className }: SceneRendererProps) {
+  const bgEntry = registry.get(scene.background);
+  const bgUrl = bgEntry ? getRegistryAssetUrl(bgEntry) : null;
 
   return (
     <div
@@ -127,60 +167,31 @@ export function SceneRenderer({ scene, assetMap, alt, className }: SceneRenderer
       )}
 
       {scene.objects.map((layer) => (
-        <SceneLayerElement key={layer.id} layer={layer} assetMap={assetMap} defaultSize="h-8 w-12 sm:h-10 sm:w-14" />
+        <SceneLayerElement key={layer.id} layer={layer} registry={registry} defaultSize="h-8 w-12 sm:h-10 sm:w-14" />
       ))}
 
       {scene.props.map((layer) => (
-        <SceneLayerElement key={layer.id} layer={layer} assetMap={assetMap} defaultSize="h-16 w-24 sm:h-20 sm:w-28" />
+        <SceneLayerElement key={layer.id} layer={layer} registry={registry} defaultSize="h-16 w-24 sm:h-20 sm:w-28" />
       ))}
 
-      {scene.characters.map((character) => {
-        const entry = assetMap.get(character.character);
-        const coords = resolvePosition(character.position, character.character === "pip");
-        const style = applyTransform(positionToStyle(coords), character.transform);
-        const motionProps = animationProps(character.animation, reduceMotion);
-
-        const sizeClass =
-          character.character === "pip"
-            ? "h-20 w-20 sm:h-24 sm:w-24"
-            : character.character === "whiskers"
-              ? "h-14 w-20 sm:h-16 sm:w-24"
-              : character.character === "dad"
-                ? "h-32 w-20 sm:h-36 sm:w-24"
-                : "h-28 w-20 sm:h-32 sm:w-24";
-
-        return (
-          <motion.div
-            key={character.id}
-            className={cn("absolute", sizeClass)}
-            style={{ ...style, zIndex: character.transform?.zIndex ?? 30 }}
-            {...motionProps}
-          >
-            {character.character === "leo" && (
-              <Leo variant={leoPoseToVariant(character.pose)} className="drop-shadow-sm" />
-            )}
-            {character.character === "pip" && (
-              <Pip expression={toPipExpression(character.expression)} size="lg" className="!h-full !w-full" />
-            )}
-            {character.character === "dad" && (
-              <Dad variant={character.pose} className="drop-shadow-sm" />
-            )}
-            {character.character === "whiskers" && (
-              <Whiskers variant={character.pose} className="drop-shadow-sm" />
-            )}
-            {!entry && character.character !== "leo" && character.character !== "pip" && character.character !== "dad" && character.character !== "whiskers" && (
-              <div className="rounded bg-cream/80 px-2 py-1 text-xs text-warm-brown">{character.character}</div>
-            )}
-          </motion.div>
-        );
-      })}
+      {scene.characters.map((character) => (
+        <CharacterLayer
+          key={character.id}
+          characterId={character.character}
+          pose={character.pose}
+          expression={character.expression}
+          position={character.position}
+          transform={character.transform}
+          animation={character.animation}
+        />
+      ))}
 
       {scene.speechBubbles.map((layer) => (
-        <SceneLayerElement key={layer.id} layer={layer} assetMap={assetMap} defaultSize="h-10 w-20 sm:h-12 sm:w-24" />
+        <SceneLayerElement key={layer.id} layer={layer} registry={registry} defaultSize="h-10 w-20 sm:h-12 sm:w-24" />
       ))}
 
       {scene.effects.map((layer) => (
-        <SceneLayerElement key={layer.id} layer={layer} assetMap={assetMap} defaultSize="h-8 w-12 sm:h-10 sm:w-14" />
+        <SceneLayerElement key={layer.id} layer={layer} registry={registry} defaultSize="h-8 w-12 sm:h-10 sm:w-14" />
       ))}
     </div>
   );

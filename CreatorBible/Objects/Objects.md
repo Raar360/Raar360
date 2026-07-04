@@ -21,7 +21,8 @@ Story objects are the treasures that appear on Pip's Backpack grid. Each book is
 | Property | Value |
 |----------|-------|
 | Asset ID | `green-brick` |
-| Category | `object` |
+| Registry category | `prop` |
+| File path | `props/green-brick.svg` |
 | Colour | `#6BB86B`, shadow `#4E9A4E` |
 | Size | Tiny — roughly 8×5% of panel |
 | Placement | On floor, center or where story specifies |

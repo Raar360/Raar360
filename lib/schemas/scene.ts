@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { AssetRefSchema, PositionSchema } from "./asset";
+import { PositionSchema } from "./asset";
 
 /** How dialogue is presented for this scene (text lives in story.json). */
 export const DialogueMode = z.enum(["narration", "speech", "mixed", "none"]);
@@ -7,9 +7,7 @@ export const DialogueMode = z.enum(["narration", "speech", "mixed", "none"]);
 /** Future animation hook — story content stays unchanged when animation is added. */
 export const SceneAnimationSchema = z.object({
   id: z.string(),
-  /** Animation preset (e.g. "float", "walk-in", "sparkle"). Resolved by Scene Engine. */
   preset: z.string().optional(),
-  /** Target layer id within the scene. */
   target: z.string().optional(),
   delay: z.number().nonnegative().optional(),
   duration: z.number().positive().optional(),
@@ -23,7 +21,7 @@ export const SceneTransformSchema = z.object({
   zIndex: z.number().int().optional(),
 });
 
-/** Character layer — references a character asset with pose, expression, and position. */
+/** Character layer — references a character asset ID with pose, expression, and position. */
 export const SceneCharacterSchema = z.object({
   id: z.string(),
   character: z.string(),
@@ -34,21 +32,21 @@ export const SceneCharacterSchema = z.object({
   animation: SceneAnimationSchema.optional(),
 });
 
-/** Generic placed asset (props, objects, effects, speech bubbles). */
+/** Generic placed asset layer — references registry asset by ID only. */
 export const SceneLayerSchema = z.object({
   id: z.string(),
-  asset: AssetRefSchema,
+  assetId: z.string(),
   position: PositionSchema,
   transform: SceneTransformSchema.optional(),
-  /** Text content for speech-bubble assets (optional — caption may use story text). */
   text: z.string().optional(),
   animation: SceneAnimationSchema.optional(),
 });
 
-/** A composable scene — one per story page. References reusable Asset Library entries. */
+/** A composable scene — references Asset Registry IDs, never file paths. */
 export const SceneSchema = z.object({
   id: z.string(),
-  background: AssetRefSchema,
+  /** Asset Registry ID for the background. */
+  background: z.string(),
   characters: z.array(SceneCharacterSchema).default([]),
   props: z.array(SceneLayerSchema).default([]),
   objects: z.array(SceneLayerSchema).default([]),

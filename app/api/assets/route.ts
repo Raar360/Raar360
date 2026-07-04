@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { loadAssetManifest } from "@/lib/assets/loader";
+import { loadAssetRegistry } from "@/lib/assets/registry";
 
 export async function GET() {
   try {
-    const manifest = await loadAssetManifest();
-    return NextResponse.json(manifest);
+    const registry = await loadAssetRegistry();
+    return NextResponse.json(registry);
   } catch {
-    return NextResponse.json({ error: "Failed to load asset manifest" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to load asset registry" }, { status: 500 });
   }
 }
