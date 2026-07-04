@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <path d="M100 350 L200 220 L300 350 Z" fill="#6BB86B" stroke="#2C1810" stroke-width="2" opacity="0.5"/>
+  <rect x="140" y="300" width="80" height="55" rx="3" fill="#C4A882" stroke="#2C1810" stroke-width="1.5" opacity="0.5"/>
+  <ellipse cx="200" cy="320" rx="28" ry="30" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="188" cy="316" rx="5" ry="6" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="212" cy="316" rx="5" ry="6" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="200" cy="330" rx="6" ry="4" fill="#2C1810"/>
+  <ellipse cx="175" cy="395" rx="20" ry="9" fill="#D4A574" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="225" cy="395" rx="20" ry="9" fill="#D4A574" stroke="#2C1810" stroke-width="2"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">Oh! My shoes.</text>
+</svg>

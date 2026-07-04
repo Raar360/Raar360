@@ -6,31 +6,73 @@
     {
       "id": "page-01",
       "illustration": "illustrations/page-01.svg",
-      "text": "Leo was building a tower with his green bricks. It was wobbly, but he was trying his best.",
-      "pipExpression": "curious"
+      "text": "Every morning, before breakfast, Leo opened his bedroom door.\n\nAnd every morning…\n\nPip was already waiting.\n\nWearing his tiny yellow backpack.\n\nSmiling.\n\n\"Ready?\" asked Pip.\n\nLeo grinned.\n\n\"I wonder what adventure we'll find today.\"",
+      "pipExpression": "excited"
     },
     {
       "id": "page-02",
       "illustration": "illustrations/page-02.svg",
-      "text": "Then the tower fell. Leo felt something warm rising inside him, like a tiny volcano waking up.",
-      "pipExpression": "curious"
+      "text": "As they tiptoed down the hallway, Dad called from the kitchen.\n\n\"Morning, Leo! Shoes on please, we're leaving soon.\"\n\n\"Okay!\" called Leo.\n\nHe really meant it.\n\nLeo turned towards the front door.\n\nPip skipped beside him.",
+      "pipExpression": "neutral"
     },
     {
       "id": "page-03",
       "illustration": "illustrations/page-03.svg",
-      "text": "His hands felt tight. His tummy felt fizzy. Leo didn't mean to feel this way — it just arrived.",
-      "pipExpression": "gentle"
+      "text": "Halfway there…\n\nPip stopped.\n\nHis big eyes grew even bigger.\n\nOn the floor sat a tiny green Lego brick.\n\n\"Look!\" whispered Pip.\n\nLeo picked it up carefully.\n\n\"I've been looking for this!\"",
+      "pipExpression": "curious"
     },
     {
       "id": "page-04",
       "illustration": "illustrations/page-04.svg",
-      "text": "Pip noticed. \"Something interesting is happening inside you,\" Pip whispered, with kind eyes.",
-      "pipExpression": "excited"
+      "text": "\"The spaceship!\" said Leo.\n\n\"It needs one more wing.\"\n\nThey hurried to Leo's room.\n\nLeo clicked the green brick into place.\n\nPip stepped back.\n\n\"It still looks a little wobbly.\"\n\nLeo nodded.\n\n\"It needs balancing.\"",
+      "pipExpression": "curious"
     },
     {
       "id": "page-05",
       "illustration": "illustrations/page-05.svg",
-      "text": "Leo sat down and breathed slowly. The warm feeling didn't vanish — but it stopped bubbling quite so fast.",
+      "text": "\"What if…\" said Pip slowly.\n\n\"…spaceships had two extra wings?\"\n\nLeo's eyes lit up.\n\n\"They'd fly even better!\"\n\nSoon there were bricks everywhere.\n\nBlue bricks. Grey bricks. Tiny transparent windows. Long white rockets.\n\nThe spaceship grew bigger and bigger.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-06",
+      "illustration": "illustrations/page-06.svg",
+      "text": "Pip looked closely.\n\n\"Hmm…\"\n\n\"What?\"\n\n\"It doesn't have anywhere for the captain to sit.\"\n\nLeo gasped.\n\n\"It needs seats!\"\n\n\"And buttons!\"\n\n\"And a snack cupboard!\"",
+      "pipExpression": "curious"
+    },
+    {
+      "id": "page-07",
+      "illustration": "illustrations/page-07.svg",
+      "text": "Just then…\n\n\"Meeooow.\"\n\nWhiskers the cat squeezed into the cardboard spaceship box.\n\nLeo laughed.\n\n\"The captain has arrived!\"\n\nPip saluted.\n\n\"Captain Whiskers!\"\n\nThe cat purred proudly.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-08",
+      "illustration": "illustrations/page-08.svg",
+      "text": "\"If Whiskers is flying to the Moon…\" said Pip, \"…what will he eat?\"\n\nLeo thought very hard.\n\n\"Moon fish?\"\n\n\"Space biscuits?\"\n\n\"Cheese?\"\n\nBoth of them burst into giggles.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-09",
+      "illustration": "illustrations/page-09.svg",
+      "text": "Dad appeared at the bedroom door.\n\nHe smiled when he saw the enormous spaceship.\n\n\"It looks amazing.\"\n\nLeo beamed.\n\n\"We found the green brick!\"\n\n\"And then Captain Whiskers…\"\n\n\"And then…\"\n\nLeo stopped.\n\nDad smiled gently.\n\n\"Weren't you heading somewhere first?\"\n\nLeo blinked.\n\n\"I was?\"",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-10",
+      "illustration": "illustrations/page-10.svg",
+      "text": "Leo looked around the room.\n\nThe spaceship. The cat. The bricks. The cardboard box.\n\nThen he looked down.\n\nHe was still wearing his slippers.\n\n\"Oh!\" he whispered.\n\n\"My shoes.\"",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-11",
+      "illustration": "illustrations/page-11.svg",
+      "text": "\"I thought I'd only stopped for a tiny moment.\"\n\nDad nodded.\n\n\"I know.\"\n\nLeo looked puzzled.\n\n\"It still feels like a tiny moment.\"\n\nPip looked puzzled too.\n\n\"It felt tiny to me as well.\"\n\nNobody was cross.\n\nEverybody was thinking.",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-12",
+      "illustration": "illustrations/page-12.svg",
+      "text": "Dad picked up the little green brick.\n\nHe placed it gently into Pip's tiny backpack.\n\n\"Looks like today's adventure started here.\"\n\nLeo smiled.\n\n\"It was a really good adventure.\"\n\nPip smiled too.\n\n\"It was.\"\n\nDad winked.\n\n\"And next time…\"\n\nLeo laughed.\n\n\"…maybe the shoes can come first.\"\n\nPip zipped up the backpack.\n\nAnother adventure. Another treasure. Another story to remember.",
       "pipExpression": "gentle"
     }
   ]

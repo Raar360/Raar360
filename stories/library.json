@@ -2,19 +2,11 @@
   "version": 1,
   "books": [
     {
-      "id": "book02",
-      "object": "green-brick",
-      "title": "ZOOMIE!",
-      "subtitle": "A story about time blindness",
-      "sortOrder": 1,
-      "enabled": true
-    },
-    {
       "id": "book01",
-      "object": "volcano",
-      "title": "When Feelings Bubble Up",
-      "subtitle": "Leo and the warm volcano",
-      "sortOrder": 2,
+      "object": "green-brick",
+      "title": "The Tiny Green Brick",
+      "subtitle": "Book One — Leo and Pip",
+      "sortOrder": 1,
       "enabled": true
     }
   ]

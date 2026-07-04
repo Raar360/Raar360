@@ -1,27 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
   <rect width="400" height="500" fill="#FAF3E8"/>
   <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
-  <!-- Leo sitting, hands on tummy -->
-  <ellipse cx="200" cy="370" rx="50" ry="10" fill="#35629E" stroke="#2C1810" stroke-width="2"/>
-  <path d="M160 340 L155 370 L245 370 L240 340 Q200 320 160 340Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2.5"/>
-  <ellipse cx="200" cy="300" rx="26" ry="28" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
-  <path d="M174 288 C172 270 186 258 200 258 C214 258 228 270 226 288" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
-  <ellipse cx="190" cy="298" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
-  <ellipse cx="210" cy="298" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
-  <circle cx="190" cy="299" r="2.5" fill="#2C1810"/>
-  <circle cx="210" cy="299" r="2.5" fill="#2C1810"/>
-  <path d="M192 312 Q200 308 208 312" fill="none" stroke="#2C1810" stroke-width="2"/>
-  <!-- Hands on tummy -->
-  <ellipse cx="175" cy="335" rx="12" ry="10" fill="#F4C9A0" stroke="#2C1810" stroke-width="2"/>
-  <ellipse cx="225" cy="335" rx="12" ry="10" fill="#F4C9A0" stroke="#2C1810" stroke-width="2"/>
-  <!-- Fizzy tummy glow -->
-  <ellipse cx="200" cy="340" rx="30" ry="22" fill="#E8A598" opacity="0.25"/>
-  <circle cx="185" cy="335" r="4" fill="#F5C4BC" opacity="0.8"/>
-  <circle cx="200" cy="330" r="3" fill="#F5C4BC" opacity="0.8"/>
-  <circle cx="215" cy="336" r="4" fill="#F5C4BC" opacity="0.8"/>
-  <circle cx="192" cy="345" r="3" fill="#F5C4BC" opacity="0.6"/>
-  <circle cx="208" cy="343" r="3" fill="#F5C4BC" opacity="0.6"/>
-  <!-- Tight hands visual -->
-  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">hands tight</text>
-  <text x="200" y="205" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">tummy fizzy</text>
+  <rect x="200" y="385" width="32" height="20" rx="3" fill="#4E9A4E" stroke="#2C1810" stroke-width="2.5"/>
+  <rect x="198" y="383" width="32" height="20" rx="3" fill="#6BB86B" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="236" cy="393" rx="40" ry="25" fill="#6BB86B" opacity="0.15"/>
+  <ellipse cx="120" cy="320" rx="22" ry="24" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="280" cy="300" rx="28" ry="24" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="268" cy="292" rx="12" ry="14" fill="white" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="292" cy="292" rx="12" ry="14" fill="white" stroke="#2C1810" stroke-width="2"/>
+  <circle cx="268" cy="295" r="5" fill="#2C1810"/>
+  <circle cx="292" cy="295" r="5" fill="#2C1810"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">Look!</text>
 </svg>

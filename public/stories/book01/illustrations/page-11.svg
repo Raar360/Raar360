@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <ellipse cx="120" cy="300" rx="28" ry="30" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="110" cy="296" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="130" cy="296" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="280" cy="300" rx="28" ry="30" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M268 288 C266 275 278 266 280 266 C282 266 294 275 292 288" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="200" cy="310" rx="26" ry="28" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="190" cy="306" rx="5" ry="6" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="210" cy="306" rx="5" ry="6" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" fill="#5C4033">It felt tiny to me as well.</text>
+  <text x="200" y="420" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13" font-style="italic" fill="#5C4033">Nobody was cross. Everybody was thinking.</text>
+</svg>

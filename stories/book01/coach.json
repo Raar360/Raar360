@@ -6,23 +6,23 @@
     "questions": [
       {
         "id": "w1",
-        "text": "Have you ever felt something warm rising inside you, like Leo?",
-        "pipPrompt": "Invite the child to share without fixing."
+        "text": "Have you ever found something tiny that led to a big adventure?",
+        "pipPrompt": "Invite sharing without fixing."
       },
       {
         "id": "w2",
-        "text": "Where in your body do big feelings sometimes show up?",
-        "pipPrompt": "Notice, don't diagnose."
+        "text": "When Leo thought it was only a tiny moment — has time ever felt tiny to you too?",
+        "pipPrompt": "Normalise without diagnosing."
       },
       {
         "id": "w3",
-        "text": "What helps you when feelings bubble up?",
-        "pipPrompt": "Celebrate whatever they share."
+        "text": "What treasures has your brain found when you were on your way somewhere?",
+        "pipPrompt": "Celebrate curiosity."
       }
     ]
   },
   "pocket": {
-    "reflection": "Sometimes feelings arrive like a warm volcano — and that's okay. You can notice them, breathe, and know they will settle.",
-    "pipLine": "Pip keeps interesting things safe in the pocket."
+    "reflection": "Sometimes a tiny green brick can hold a whole adventure — and that's okay. Adventures can live in Pip's pocket until you're ready to remember them.",
+    "pipLine": "Another adventure. Another treasure. Another story to remember."
   }
 }

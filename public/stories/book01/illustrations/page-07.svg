@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <rect x="120" y="280" width="160" height="120" rx="4" fill="#C4A882" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M100 280 L200 220 L300 280" fill="#8B7355" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="200" cy="340" rx="35" ry="25" fill="#E8A84C" stroke="#2C1810" stroke-width="2.5"/>
+  <circle cx="185" cy="330" r="4" fill="#2C1810"/>
+  <circle cx="215" cy="330" r="4" fill="#2C1810"/>
+  <path d="M175 318 L170 305 M225 318 L230 305" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="280" cy="360" rx="20" ry="17" fill="#6EB5E0" stroke="#2C1810" stroke-width="2"/>
+  <path d="M270 355 L280 345 L290 355" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="600" fill="#5C4033">Captain Whiskers!</text>
+</svg>

@@ -1,8 +1,8 @@
 {
   "id": "book01",
-  "title": "When Feelings Bubble Up",
-  "object": "volcano",
+  "title": "The Tiny Green Brick",
+  "object": "green-brick",
   "characters": ["leo", "pip"],
   "ageRange": { "min": 5, "max": 9 },
-  "tags": ["feelings", "volcano"]
+  "tags": ["green-brick", "adventure", "book-one"]
 }

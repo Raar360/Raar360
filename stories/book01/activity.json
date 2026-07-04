@@ -2,30 +2,37 @@
   "version": 1,
   "bookId": "book01",
   "type": "tap-explore",
-  "title": "Explore the Volcano",
-  "instructions": "Tap the gentle spots to explore. There is no wrong way.",
+  "title": "Explore the Adventure",
+  "instructions": "Tap the spots to explore. There is no wrong way.",
   "background": "illustrations/activity-bg.svg",
   "hotspots": [
     {
-      "id": "steam",
-      "label": "Steam",
+      "id": "brick",
+      "label": "Green brick",
+      "x": 25,
+      "y": 70,
+      "revealText": "The tiny green brick — where today's adventure started."
+    },
+    {
+      "id": "spaceship",
+      "label": "Spaceship",
       "x": 50,
-      "y": 25,
-      "revealText": "Steam rises and floats away — feelings can move through us too."
+      "y": 40,
+      "revealText": "The spaceship grew bigger and bigger — one interesting idea led to another."
     },
     {
-      "id": "ground",
-      "label": "Ground",
-      "x": 30,
-      "y": 75,
-      "revealText": "Leo felt steady ground beneath him when he sat down."
-    },
-    {
-      "id": "heart",
-      "label": "Heart",
-      "x": 70,
+      "id": "whiskers",
+      "label": "Captain Whiskers",
+      "x": 72,
       "y": 55,
-      "revealText": "Kindness toward yourself is always allowed."
+      "revealText": "Captain Whiskers arrived — and that was wonderful too."
+    },
+    {
+      "id": "shoes",
+      "label": "Shoes",
+      "x": 85,
+      "y": 82,
+      "revealText": "The shoes were still waiting — they didn't mind."
     }
   ]
 }

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <circle cx="320" cy="100" r="35" fill="#F5C842" opacity="0.4"/>
+  <ellipse cx="160" cy="320" rx="24" ry="26" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M148 338 Q160 350 172 338" fill="none" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="260" cy="330" rx="22" ry="19" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M248 322 Q260 332 272 322" fill="none" stroke="#2C1810" stroke-width="2.5"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13" fill="#5C4033">Moon fish?</text>
+  <text x="200" y="200" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13" fill="#5C4033">Space biscuits?</text>
+  <text x="200" y="220" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13" fill="#5C4033">Cheese?</text>
+  <text x="200" y="260" text-anchor="middle" font-family="Nunito,sans-serif" font-size="24">=</text>
+</svg>

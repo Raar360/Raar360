@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <defs>
+    <linearGradient id="warm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5E6D3"/>
+      <stop offset="100%" stop-color="#FAF3E8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#warm)"/>
+  <circle cx="320" cy="90" r="40" fill="#F5C842" opacity="0.35"/>
+  <ellipse cx="200" cy="320" rx="26" ry="28" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M188 328 Q200 336 212 328" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="300" cy="310" rx="24" ry="26" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M288 302 Q300 308 312 302" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="120" cy="330" rx="24" ry="22" fill="#6EB5E0" stroke="#2C1810" stroke-width="2.5"/>
+  <rect x="128" y="338" width="14" height="11" rx="2" fill="#F5C842" stroke="#2C1810" stroke-width="1.5"/>
+  <rect x="200" y="250" width="28" height="18" rx="3" fill="#6BB86B" stroke="#2C1810" stroke-width="2"/>
+  <path d="M214 250 L220 240 L226 250" fill="#6BB86B" stroke="#2C1810" stroke-width="1.5"/>
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="13" fill="#5C4033">Today's adventure started here.</text>
+  <text x="200" y="430" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="600" fill="#5C4033">The End</text>
+</svg>
