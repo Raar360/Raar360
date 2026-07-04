@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { AppShell } from "@/components/layout/AppShell";
 import { PocketReflection } from "@/components/pocket/PocketReflection";
 import { BackButton } from "@/components/layout/BackButton";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { loadBook } from "@/lib/story/loader";
@@ -27,15 +28,17 @@ export default function PocketPage() {
   }, [bookId]);
 
   return (
-    <AppShell>
+    <AppShell showFooter={false}>
       <BackButton href={`/story/${bookId}/play`} label="Back to play" />
       {loading && <Typography variant="subtitle" className="mt-4">Loading…</Typography>}
       {!loading && reflection && (
         <div className="flex flex-1 flex-col">
           <PocketReflection reflection={reflection} pipLine={pipLine} />
-          <div className="flex justify-center pb-8">
-            <Button onClick={() => router.push("/")}>Finish</Button>
-          </div>
+          <MobileActionBar>
+            <Button onClick={() => router.push("/")} className="w-full">
+              Finish
+            </Button>
+          </MobileActionBar>
         </div>
       )}
     </AppShell>

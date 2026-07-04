@@ -15,7 +15,14 @@ export const metadata: Metadata = {
   applicationName: "Pip's Backpack",
   appleWebApp: {
     capable: true,
+    statusBarStyle: "default",
     title: "Pip's Backpack",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  icons: {
+    apple: "/icons/icon.svg",
   },
 };
 
@@ -23,6 +30,8 @@ export const viewport: Viewport = {
   themeColor: "#FAF3E8",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -32,7 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={`${nunito.variable} h-full`}>
-      <body className="min-h-full antialiased">{children}</body>
+      <body className="min-h-dvh touch-manipulation antialiased">{children}</body>
     </html>
   );
 }

@@ -25,9 +25,9 @@ export function TapExplore({ bookId, activity }: TapExploreProps) {
   };
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-4 sm:gap-6">
       <Typography variant="subtitle">{activity.instructions}</Typography>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-soft border-2 border-outline/15">
+      <div className="relative aspect-[4/3] max-h-[min(45dvh,360px)] w-full overflow-hidden rounded-soft border-2 border-outline/15 sm:max-h-none">
         <Image
           src={getIllustrationUrl(bookId, activity.background)}
           alt=""
@@ -41,7 +41,7 @@ export function TapExplore({ bookId, activity }: TapExploreProps) {
             type="button"
             aria-label={spot.label ?? "Explore"}
             onClick={() => toggle(spot.id)}
-            className="absolute h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-golden/80 bg-golden/30 backdrop-blur-sm transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden"
+            className="absolute min-h-12 min-w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-golden/80 bg-golden/40 p-3 backdrop-blur-sm transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden"
             style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
           />
         ))}

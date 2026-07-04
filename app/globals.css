@@ -22,10 +22,23 @@
   --shadow-gentle: 0 4px 20px rgba(92, 64, 51, 0.12);
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   background: var(--color-cream);
   color: var(--color-warm-brown);
   font-family: var(--font-nunito), system-ui, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent iOS zoom on form focus — inputs must be ≥16px */
+input,
+select,
+textarea {
+  font-size: max(16px, 1rem);
 }
 
 .pb-safe {

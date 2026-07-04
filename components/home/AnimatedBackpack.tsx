@@ -20,11 +20,11 @@ export function AnimatedBackpack() {
   };
 
   return (
-    <div className="flex flex-1 flex-col items-center justify-center gap-8 py-8">
-      <Typography variant="title" as="h1" className="text-center">
+    <div className="flex flex-1 flex-col items-center justify-center gap-5 py-4 sm:gap-8 sm:py-8">
+      <Typography variant="title" as="h1" className="text-center px-2">
         Pip&apos;s Backpack
       </Typography>
-      <Typography variant="subtitle" className="max-w-md text-center">
+      <Typography variant="subtitle" className="max-w-md px-2 text-center">
         A calm place for stories that help you recognise yourself.
       </Typography>
 
@@ -32,11 +32,11 @@ export function AnimatedBackpack() {
         type="button"
         onClick={handleOpen}
         aria-label="Open Pip's backpack"
-        className="relative mt-4 outline-none focus-visible:ring-2 focus-visible:ring-golden/60 focus-visible:ring-offset-4 focus-visible:ring-offset-cream"
+        className="relative mt-2 outline-none focus-visible:ring-2 focus-visible:ring-golden/60 focus-visible:ring-offset-4 focus-visible:ring-offset-cream sm:mt-4"
         animate={reduceMotion || opening ? undefined : { y: [0, -10, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        <svg viewBox="0 0 200 220" className="h-56 w-56 md:h-72 md:w-72 drop-shadow-gentle">
+        <svg viewBox="0 0 200 220" className="h-44 w-44 drop-shadow-gentle sm:h-56 sm:w-56 md:h-72 md:w-72">
           <rect x="40" y="70" width="120" height="120" rx="16" fill="#F4C542" stroke="#3D2914" strokeWidth="4" />
           <motion.g
             animate={opening ? { rotate: -28, y: -12, x: -8 } : { rotate: 0, y: 0, x: 0 }}
@@ -80,7 +80,7 @@ export function AnimatedBackpack() {
       <Button
         variant="soft"
         onClick={() => router.push("/backpack")}
-        className={cn(opening && "pointer-events-none opacity-50")}
+        className={cn("w-full max-w-xs sm:w-auto", opening && "pointer-events-none opacity-50")}
       >
         Or choose a story
       </Button>

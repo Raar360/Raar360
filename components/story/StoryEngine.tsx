@@ -6,6 +6,7 @@ import { loadBook } from "@/lib/story/loader";
 import { getResumePage, markCompleted, saveProgress } from "@/lib/story/progress";
 import type { BookBundle } from "@/lib/story/loader";
 import { BackButton } from "@/components/layout/BackButton";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { StoryControls } from "./StoryControls";
 import { StoryPage } from "./StoryPage";
 import { StoryProgress } from "./StoryProgress";
@@ -21,6 +22,7 @@ export function StoryEngine({ bookId }: StoryEngineProps) {
   const [pageIndex, setPageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [resumed, setResumed] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -32,6 +34,7 @@ export function StoryEngine({ bookId }: StoryEngineProps) {
         const resume = await getResumePage(bookId, bundle.story.pages.length);
         setBook(bundle);
         setPageIndex(resume);
+        setResumed(resume > 0);
       } catch {
         if (active) setError("We couldn't open this story right now.");
       } finally {
@@ -94,20 +97,29 @@ export function StoryEngine({ bookId }: StoryEngineProps) {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="mb-2">
+      <div className="mb-2 flex items-center justify-between gap-2">
         <BackButton href="/backpack" />
+        {resumed && pageIndex > 0 && (
+          <Typography variant="label" className="normal-case tracking-normal text-golden">
+            Picking up where you left off
+          </Typography>
+        )}
       </div>
       <Typography variant="label" className="mb-2">
         {book.meta.title}
       </Typography>
       <StoryProgress total={book.story.pages.length} current={pageIndex} />
-      <StoryPage bookId={bookId} page={page} transition={book.story.transition} />
-      <StoryControls
-        canGoPrevious={pageIndex > 0}
-        isLastPage={isLastPage}
-        onPrevious={goPrevious}
-        onNext={goNext}
-      />
+      <div className="flex-1 overflow-y-auto">
+        <StoryPage bookId={bookId} page={page} transition={book.story.transition} />
+      </div>
+      <MobileActionBar>
+        <StoryControls
+          canGoPrevious={pageIndex > 0}
+          isLastPage={isLastPage}
+          onPrevious={goPrevious}
+          onNext={goNext}
+        />
+      </MobileActionBar>
     </div>
   );
 }

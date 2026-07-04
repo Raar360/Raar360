@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { AppShell } from "@/components/layout/AppShell";
 import { ActivityRenderer } from "@/components/play/ActivityRenderer";
 import { BackButton } from "@/components/layout/BackButton";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography";
 import { loadBook } from "@/lib/story/loader";
@@ -28,13 +29,15 @@ export default function PlayPage() {
       <BackButton href={`/story/${bookId}/wonder`} label="Back to wonder" />
       {loading && <Typography variant="subtitle" className="mt-4">Loading…</Typography>}
       {!loading && activity && (
-        <div className="mt-6 flex flex-1 flex-col">
-          <ActivityRenderer bookId={bookId} activity={activity} />
-          <div className="mt-8 flex justify-end">
-            <Button onClick={() => router.push(`/story/${bookId}/pocket`)}>
+        <div className="mt-4 flex flex-1 flex-col sm:mt-6">
+          <div className="flex-1 overflow-y-auto pb-4">
+            <ActivityRenderer bookId={bookId} activity={activity} />
+          </div>
+          <MobileActionBar>
+            <Button onClick={() => router.push(`/story/${bookId}/pocket`)} className="w-full">
               Pip&apos;s Pocket
             </Button>
-          </div>
+          </MobileActionBar>
         </div>
       )}
     </AppShell>

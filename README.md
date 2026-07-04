@@ -55,3 +55,36 @@ Visit `/coach` (also linked subtly from the footer). Set a PIN on first visit to
 npm run build
 npm start
 ```
+
+## Review on your phone (while travelling)
+
+The app is **mobile-first** — every screen is designed for phone-sized viewports with thumb-friendly controls, safe-area padding (notched iPhones), and swipe gestures on Wonder Together.
+
+### Option 1: Vercel preview (recommended)
+
+If this repo is connected to [Vercel](https://vercel.com), each pull request gets a **Preview URL**. Open that link on your phone's browser — no laptop needed.
+
+1. Open the PR on GitHub
+2. Find the Vercel bot comment with the preview link (or check the PR "Deployments" section)
+3. Open the URL on your phone
+4. Optional: **Add to Home Screen** (Safari → Share → Add to Home Screen) for a full-screen app-like experience
+
+### Option 2: Local network (same Wi‑Fi)
+
+If you're running `npm run dev` on a machine on the same network:
+
+```bash
+npm run dev -- --hostname 0.0.0.0
+```
+
+Then on your phone, open `http://<your-computer-ip>:3000` (e.g. `http://192.168.1.42:3000`).
+
+### Mobile features included
+
+- Sticky bottom action bars on story, wonder, play, and pocket screens
+- Swipe left/right between Wonder Together questions
+- Continue / Finished badges on the story picker when you return
+- 44px+ touch targets throughout
+- Illustrations capped in height so Continue buttons stay reachable
+- PWA manifest — add to home screen when deployed
+
