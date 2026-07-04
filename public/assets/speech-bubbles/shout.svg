@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 50">
+  <ellipse cx="40" cy="40" rx="35" ry="12" fill="white" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M15 35 Q40 5 65 35" fill="white" stroke="#2C1810" stroke-width="2.5"/>
+  <text x="40" y="32" text-anchor="middle" font-family="Nunito,sans-serif" font-size="14" font-weight="700" fill="#5C4033">!</text>
+</svg>

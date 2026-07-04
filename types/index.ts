@@ -3,6 +3,19 @@ export type {
   LibraryBookEntry,
   StoryObjectType,
   BookMeta,
+  AssetCategory,
+  AssetDimensions,
+  AssetRegistryEntry,
+  AssetRegistry,
+  AssetRef,
+  Position,
+  ScenePosition,
+  SceneCoordinates,
+  Scene,
+  SceneAnimation,
+  SceneCharacter,
+  SceneLayer,
+  DialogueMode,
   Story,
   StoryPage,
   StoryTransition,
@@ -12,3 +25,9 @@ export type {
   Activity,
   TapExploreActivity,
 } from "@/lib/schemas";
+
+/** @deprecated Use AssetRegistryEntry */
+export type AssetEntry = import("@/lib/schemas/registry").AssetRegistryEntry;
+
+/** @deprecated Use AssetRegistry */
+export type AssetManifest = import("@/lib/schemas/registry").AssetRegistry;
