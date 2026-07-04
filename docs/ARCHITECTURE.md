@@ -1,10 +1,10 @@
 # Pip's Backpack — Technical Architecture
 
-> **Status:** Draft for review  
-> **Version:** 1.0  
+> **Status:** Approved — Scene Engine architecture (v2.0)  
+> **Version:** 2.0  
 > **Last updated:** 2026-07-04
 
-This document defines the complete technical architecture for *Pip's Backpack* — a therapeutic storytelling platform for children and their coaches/parents. **No application code should be written until this document is approved.**
+This document defines the complete technical architecture for *Pip's Backpack* — a therapeutic storytelling platform for children and their coaches/parents.
 
 ---
 
@@ -19,15 +19,16 @@ This document defines the complete technical architecture for *Pip's Backpack* �
 7. [Component Architecture](#7-component-architecture)
 8. [State Management](#8-state-management)
 9. [JSON Schemas](#9-json-schemas)
-10. [Story Engine](#10-story-engine)
-11. [Storage Layer](#11-storage-layer)
-12. [Coach Mode](#12-coach-mode)
-13. [PWA & Offline Strategy](#13-pwa--offline-strategy)
-14. [Animation & Motion Guidelines](#14-animation--motion-guidelines)
-15. [Accessibility & UX](#15-accessibility--ux)
-16. [Future-Proofing](#16-future-proofing)
-17. [Development Phases](#17-development-phases)
-18. [Open Questions](#18-open-questions)
+10. [Scene Engine & Asset Library](#10-scene-engine--asset-library)
+11. [Story Engine](#11-story-engine)
+12. [Storage Layer](#12-storage-layer)
+13. [Coach Mode](#13-coach-mode)
+14. [PWA & Offline Strategy](#14-pwa--offline-strategy)
+15. [Animation & Motion Guidelines](#15-animation--motion-guidelines)
+16. [Accessibility & UX](#16-accessibility--ux)
+17. [Future-Proofing](#17-future-proofing)
+18. [Development Phases](#18-development-phases)
+19. [Open Questions](#19-open-questions)
 
 ---
 
@@ -143,7 +144,7 @@ All story content lives in **local JSON files** under `stories/`. The UI is enti
 
 1. Home → animated backpack reveals story **objects** (not books)
 2. Object maps to `bookId` via `library.json`
-3. Story Engine loads `story.json`, renders pages with illustrations
+3. Story Engine loads `story.json`, renders **scenes** composed from the Asset Library
 4. On completion → Wonder Together (`coach.json` questions)
 5. → Play Together (`activity.json`)
 6. → Pip's Pocket (reflection from `coach.json`)
@@ -155,170 +156,83 @@ All story content lives in **local JSON files** under `stories/`. The UI is enti
 
 ```
 pip-backpack/
+├── CreatorBible/                     # Canonical world definitions (NOT user docs)
+│   ├── Leo.md                        # Character bible — poses, rules, appearance
+│   ├── Pip.md
+│   ├── Dad.md
+│   ├── Mum.md
+│   ├── Whiskers.md
+│   ├── World.md                      # Locations, environment rules
+│   ├── StoryRules.md                 # Narrative constraints
+│   ├── IllustrationRules.md          # Scene composition rules
+│   ├── Objects.md                    # Story object inventory
+│   └── ColourPalette.md              # Colour source of truth
+│
+├── assets/
+│   └── manifest.json                 # Asset Library catalog (Zod-validated)
+│
 ├── app/                              # Next.js App Router
-│   ├── layout.tsx                    # Root layout, fonts, providers
-│   ├── page.tsx                      # Home (animated backpack)
-│   ├── globals.css                   # Tailwind + design tokens
-│   ├── manifest.ts                   # PWA manifest (or public/manifest.json)
-│   │
-│   ├── backpack/
-│   │   └── page.tsx                  # Pip's Backpack (object grid)
-│   │
-│   ├── story/
-│   │   └── [bookId]/
-│   │       ├── page.tsx              # Story reader entry
-│   │       ├── wonder/page.tsx       # Wonder Together
-│   │       ├── play/page.tsx         # Play Together
-│   │       └── pocket/page.tsx       # Pip's Pocket
-│   │
-│   └── coach/
-│       ├── page.tsx                  # PIN gate
-│       ├── library/page.tsx          # Book list management
-│       ├── [bookId]/
-│       │   ├── story/page.tsx        # Edit story pages
-│       │   ├── wonder/page.tsx       # Edit questions
-│       │   ├── play/page.tsx         # Edit activity
-│       │   └── pocket/page.tsx       # Edit reflection
-│       └── settings/page.tsx         # PIN change, backup, export
+│   ├── api/
+│   │   ├── library/route.ts
+│   │   ├── assets/route.ts           # Serves Asset Library manifest
+│   │   └── stories/[bookId]/route.ts
+│   ...
 │
 ├── components/
-│   ├── ui/                           # Primitives (no business logic)
-│   │   ├── Button.tsx
-│   │   ├── Card.tsx
-│   │   ├── Typography.tsx
-│   │   ├── SafeArea.tsx
-│   │   ├── IconButton.tsx
-│   │   └── ProgressDots.tsx
-│   │
-│   ├── layout/
-│   │   ├── AppShell.tsx              # Max-width, padding, background
-│   │   ├── PageTransition.tsx        # Framer Motion wrapper
-│   │   └── BackButton.tsx
-│   │
+│   ├── scene/
+│   │   ├── SceneRenderer.tsx         # Composes scenes from Asset Library
+│   │   └── useAssetManifest.ts       # Client hook for manifest
 │   ├── characters/
-│   │   ├── Pip.tsx                   # Pip companion (expressions)
-│   │   └── Leo.tsx                   # Leo avatar (where needed)
-│   │
-│   ├── home/
-│   │   ├── AnimatedBackpack.tsx      # Hero backpack + float animation
-│   │   └── BackpackReveal.tsx        # Opening animation → objects emerge
-│   │
-│   ├── library/
-│   │   ├── StoryObject.tsx           # Single object tile (brick, radio…)
-│   │   └── StoryObjectGrid.tsx       # Grid of objects
-│   │
-│   ├── story/
-│   │   ├── StoryEngine.tsx           # Core reader orchestrator
-│   │   ├── StoryPage.tsx             # Single page layout
-│   │   ├── StoryIllustration.tsx     # Image + loading/fallback
-│   │   ├── StoryText.tsx             # Story copy typography
-│   │   ├── StoryControls.tsx         # Prev / Next (no timer)
-│   │   ├── StoryProgress.tsx         # Subtle progress (dots, not %)
-│   │   └── NarrationButton.tsx       # Future: play narration audio
-│   │
-│   ├── wonder/
-│   │   ├── WonderCard.tsx            # One question per screen
-│   │   └── WonderCarousel.tsx        # Swipe/tap through questions
-│   │
-│   ├── play/
-│   │   ├── ActivityRenderer.tsx      # Dispatches by activity type
-│   │   └── activities/
-│   │       ├── TapExplore.tsx        # Tap hotspots, no score
-│   │       ├── DragExplore.tsx       # Drag items, no fail state
-│   │       └── DrawSpace.tsx         # Free draw canvas
-│   │
-│   ├── pocket/
-│   │   ├── PocketReflection.tsx      # Single takeaway display
-│   │   └── PipPocket.tsx             # Pip + reflection layout
-│   │
-│   └── coach/
-│       ├── PinGate.tsx
-│       ├── BookEditor.tsx
-│       ├── PageEditor.tsx
-│       ├── QuestionEditor.tsx
-│       ├── ActivityEditor.tsx
-│       ├── ArtworkUploader.tsx
-│       ├── LibraryBackup.tsx
-│       └── PdfExport.tsx
+│   │   ├── Leo.tsx, Pip.tsx, Dad.tsx, Whiskers.tsx
+│   ...
 │
 ├── lib/
-│   ├── schemas/                      # Zod schemas (source of truth)
-│   │   ├── library.ts
-│   │   ├── story.ts
-│   │   ├── coach.ts
-│   │   ├── activity.ts
-│   │   └── index.ts
-│   │
-│   ├── story/
-│   │   ├── loader.ts                 # Load & validate book bundle
-│   │   ├── registry.ts               # bookId → metadata map
-│   │   └── progress.ts               # Read/write page progress
-│   │
-│   ├── storage/
-│   │   ├── db.ts                     # Dexie database definition
-│   │   ├── settings.ts               # App settings, coach PIN
-│   │   └── overrides.ts              # Coach edits overlay JSON
-│   │
-│   ├── coach/
-│   │   ├── auth.ts                   # PIN verify/set
-│   │   ├── export.ts                 # Backup JSON zip
-│   │   └── pdf.ts                    # PDF generation
-│   │
-│   ├── i18n/
-│   │   ├── config.ts
-│   │   └── messages/
-│   │       └── en.json               # Stub for future locales
-│   │
-│   └── utils/
-│       ├── cn.ts                     # clsx + tailwind-merge
-│       ├── assets.ts                   # Illustration path helpers
-│       └── motion.ts                   # Shared motion variants
+│   ├── schemas/
+│   │   ├── asset.ts                  # Asset Library schema
+│   │   ├── scene.ts                  # Scene composition schema
+│   │   ├── story.ts                  # Story pages reference scenes
+│   │   ...
+│   ├── assets/
+│   │   └── loader.ts                 # Load manifest from disk
+│   ├── scene/
+│   │   ├── position.ts               # Position presets & transforms
+│   │   └── characters.ts             # Character component resolution
+│   ...
 │
 ├── stories/                          # Content root (100+ books)
-│   ├── library.json                  # Master index + object mapping
-│   │
-│   └── book01/                       # Example book folder
-│       ├── meta.json                 # Title, object type, sort order
-│       ├── story.json                # Pages, text, illustration refs
-│       ├── coach.json                # Wonder questions + pocket reflection
-│       ├── activity.json             # Play Together definition
-│       └── illustrations/
-│           ├── page-01.webp
-│           ├── page-02.webp
-│           └── object-icon.webp      # Backpack grid icon
+│   └── book01/
+│       ├── story.json                # Pages with scene definitions
+│       ...
 │
 ├── public/
-│   ├── icons/                        # PWA icons
-│   ├── characters/                   # Shared Pip/Leo SVG components assets
-│   └── fonts/                        # Optional custom fonts
-│
-├── types/
-│   └── index.ts                      # Inferred types from Zod (re-exports)
+│   ├── assets/                       # Reusable Asset Library SVGs
+│   │   ├── backgrounds/
+│   │   ├── objects/
+│   │   ├── props/
+│   │   ├── speech-bubbles/
+│   │   └── effects/
+│   └── stories/bookNN/illustrations/ # Legacy flat SVGs (migration fallback)
 │
 ├── docs/
-│   └── ARCHITECTURE.md               # This document
+│   ├── ARCHITECTURE.md               # This document
+│   └── ART_STYLE.md                  # Visual style reference
 │
-├── tests/
-│   ├── schemas/                      # Schema validation tests
-│   ├── story/                        # Loader & progress tests
-│   └── components/                   # Component smoke tests
-│
-├── next.config.ts
-├── tailwind.config.ts
-├── tsconfig.json
-├── package.json
-└── README.md
+└── ...
 ```
 
 ### 5.1 Folder rationale
 
 | Folder | Responsibility |
 |--------|----------------|
+| `CreatorBible/` | **Canonical world definitions** — characters, rules, palette. Single source of truth for all future illustration and story authoring. Not loaded at runtime. |
+| `assets/` | Asset Library manifest (`manifest.json`) — catalog of reusable visual assets |
+| `public/assets/` | Asset Library files served at runtime (backgrounds, objects, props, effects) |
 | `app/` | Routes only — thin pages that compose feature components |
+| `components/scene/` | Scene Engine — composes pages from Asset Library layers |
 | `components/` | All UI; grouped by feature domain |
-| `lib/` | Pure logic: loading, validation, storage, no JSX (except none) |
-| `stories/` | **Content as data** — the only place story copy/images live |
-| `public/` | Static assets not tied to a specific book |
+| `lib/` | Pure logic: loading, validation, storage, scene resolution |
+| `stories/` | **Content as data** — story copy and scene definitions |
+| `public/stories/` | Legacy per-book flat illustrations (migration fallback) |
 | `types/` | TypeScript types derived from Zod for app-wide imports |
 | `tests/` | Mirrors `lib/` structure |
 
@@ -567,16 +481,17 @@ const BookMetaSchema = z.object({
 
 ### 9.3 `stories/bookNN/story.json`
 
-Core story definition.
+Core story definition. Each page is a **Scene** — not a static illustration.
 
 ```typescript
 const StoryPageSchema = z.object({
-  id: z.string(),                             // Stable ID for progress
-  illustration: z.string(),                   // Relative: "illustrations/page-01.webp"
+  id: z.string(),
+  scene: SceneSchema.optional(),              // Composable scene (preferred)
+  illustration: z.string().optional(),        // Legacy flat SVG (migration fallback)
   text: z.string().min(1),
-  narration: z.string().optional(),           // Relative path to audio file (future)
-  pipExpression: z.enum(["neutral", "curious", "excited", "gentle"]).optional(),
-});
+  narration: z.string().optional(),
+  pipExpression: PipExpression.optional(),    // Legacy — prefer scene character expression
+}).refine(page => page.scene || page.illustration);
 
 const StorySchema = z.object({
   version: z.literal(1),
@@ -586,15 +501,92 @@ const StorySchema = z.object({
 });
 ```
 
-**Example page:**
+**Example page (scene-based):**
 
 ```json
 {
   "id": "page-03",
-  "illustration": "illustrations/page-03.webp",
-  "text": "Leo felt something warm rising inside him, like a tiny volcano waking up.",
-  "pipExpression": "curious"
+  "scene": {
+    "id": "scene-03",
+    "background": { "id": "hallway", "category": "background" },
+    "characters": [
+      {
+        "id": "leo-03",
+        "character": "leo",
+        "pose": "reaching",
+        "expression": "curious",
+        "position": "left"
+      },
+      {
+        "id": "pip-03",
+        "character": "pip",
+        "pose": "peering",
+        "expression": "curious",
+        "position": "right"
+      }
+    ],
+    "objects": [
+      {
+        "id": "green-brick-03",
+        "asset": { "id": "green-brick", "category": "object" },
+        "position": "center"
+      }
+    ],
+    "dialogue": "mixed"
+  },
+  "text": "Halfway there… Pip stopped. On the floor sat a tiny green Lego brick."
 }
+```
+
+### 9.3.1 `assets/manifest.json`
+
+Global Asset Library catalog.
+
+```typescript
+const AssetCategory = z.enum([
+  "character", "background", "prop", "object", "speech-bubble", "effect"
+]);
+
+const AssetEntrySchema = z.object({
+  id: z.string(),
+  category: AssetCategory,
+  label: z.string(),
+  path: z.string().optional(),                // SVG path under public/assets/
+  component: z.enum(["leo", "pip", "dad", "mum", "whiskers"]).optional(),
+  poses: z.array(z.string()).optional(),
+  expressions: z.array(z.string()).optional(),
+});
+
+const AssetManifestSchema = z.object({
+  version: z.literal(1),
+  assets: z.array(AssetEntrySchema),
+});
+```
+
+### 9.3.2 Scene schema (`lib/schemas/scene.ts`)
+
+```typescript
+const SceneSchema = z.object({
+  id: z.string(),
+  background: AssetRefSchema,
+  characters: z.array(SceneCharacterSchema).default([]),
+  props: z.array(SceneLayerSchema).default([]),
+  objects: z.array(SceneLayerSchema).default([]),
+  speechBubbles: z.array(SceneLayerSchema).default([]),
+  effects: z.array(SceneLayerSchema).default([]),
+  dialogue: z.enum(["narration", "speech", "mixed", "none"]).default("narration"),
+  animation: SceneAnimationSchema.optional(),  // Future — story content unchanged
+});
+
+const SceneCharacterSchema = z.object({
+  id: z.string(),
+  character: z.string(),                       // Asset ID: "leo", "pip", etc.
+  pose: z.string(),
+  expression: z.string().optional(),
+  position: z.union([ScenePosition, SceneCoordinates]),
+  transform: SceneTransformSchema.optional(),
+  animation: SceneAnimationSchema.optional(),
+});
 ```
 
 ### 9.4 `stories/bookNN/coach.json`
@@ -695,21 +687,112 @@ const ActivitySchema = z.discriminatedUnion("type", [
 
 ---
 
-## 10. Story Engine
+## 10. Scene Engine & Asset Library
 
-### 10.1 Responsibilities
+### 10.1 Design principle
+
+The application **does not assume one static illustration per page**. Each story page is a **Scene** that references reusable assets from the **Asset Library**. This enables:
+
+- Reuse of characters, backgrounds, and props across books
+- Consistent visual identity governed by the **CreatorBible**
+- Future animation without changing story JSON content
+
+### 10.2 Asset Library categories
+
+| Category | Examples | Storage |
+|----------|----------|---------|
+| **Characters** | Leo, Pip, Dad, Mum, Whiskers | React SVG components + manifest entry |
+| **Backgrounds** | Hallway, Leo's bedroom | `public/assets/backgrounds/*.svg` |
+| **Props** | Cardboard box, spaceship, bricks | `public/assets/props/*.svg` |
+| **Objects** | Green brick, radio, volcano | `public/assets/objects/*.svg` |
+| **Speech bubbles** | Shout, whisper | `public/assets/speech-bubbles/*.svg` |
+| **Effects** | Sparkle, giggle lines | `public/assets/effects/*.svg` |
+
+### 10.3 CreatorBible
+
+The `CreatorBible/` folder at the repository root stores **canonical world definitions**. This is NOT user-facing documentation — it is the single source of truth for every future illustration and story.
+
+| File | Purpose |
+|------|---------|
+| `Leo.md` | Character appearance, poses, personality rules |
+| `Pip.md` | Companion rules, backpack always present |
+| `Dad.md`, `Mum.md` | Adult character definitions |
+| `Whiskers.md` | Cat character |
+| `World.md` | Locations and environment |
+| `StoryRules.md` | Narrative constraints |
+| `IllustrationRules.md` | Scene composition and layer ordering |
+| `Objects.md` | Story object inventory |
+| `ColourPalette.md` | Colour tokens (mirrors `lib/art/style.ts`) |
+
+### 10.4 Scene composition pipeline
+
+```
+story.json (pages[].scene)
+    ↓
+Asset manifest (assets/manifest.json)
+    ↓
+SceneRenderer
+    ├── Background layer (SVG image)
+    ├── Objects & props (SVG images, positioned)
+    ├── Characters (React SVG components, pose + expression)
+    ├── Speech bubbles (SVG + optional text)
+    └── Effects (SVG, animation-ready)
+    ↓
+StoryPage (scene + StoryText caption)
+```
+
+### 10.4.1 Layer ordering (bottom → top)
+
+1. Background
+2. Objects
+3. Props
+4. Characters
+5. Speech bubbles
+6. Effects
+
+### 10.5 Animation readiness
+
+Scenes include optional `animation` fields on characters, layers, and the scene itself. The Scene Engine resolves animation presets at render time:
+
+| Preset | Behaviour |
+|--------|-----------|
+| `float` | Gentle vertical bob (Pip default) |
+| `sparkle` | Effect pulse |
+| `walk-in` | (Future) Character entrance |
+
+**Story JSON never changes when new animations are added** — only the Scene Engine renderer gains new preset handlers.
+
+### 10.6 Migration from flat illustrations
+
+During migration, pages may define either `scene` or legacy `illustration`. `StoryPage` renders scenes via `SceneRenderer`; falls back to `StoryIllustration` for unmigrated pages.
+
+### 10.7 Component responsibilities
+
+| Component | Responsibility |
+|-----------|----------------|
+| `SceneRenderer` | Compose all scene layers into a comic panel |
+| `useAssetManifest` | Fetch and cache Asset Library manifest |
+| `lib/scene/position.ts` | Resolve position presets (`left`, `right`, etc.) |
+| `lib/assets/loader.ts` | Server-side manifest loading |
+| `app/api/assets/route.ts` | Serve manifest to client |
+
+---
+
+## 11. Story Engine
+
+### 11.1 Responsibilities
 
 `StoryEngine.tsx` + `lib/story/*`:
 
 1. **Load** — Fetch book bundle via `loader.loadBook(bookId)`
 2. **Validate** — Zod parse all JSON; surface friendly error in dev
 3. **Merge** — Apply coach overrides from IndexedDB
-4. **Render** — Current page illustration + text
+4. **Render** — Current page scene (via Scene Engine) or legacy illustration + text
 5. **Navigate** — Prev/next with Framer Motion transition from `story.transition`
 6. **Persist** — Debounced write to IndexedDB on page change
 7. **Complete** — Mark completed; route to `/story/[bookId]/wonder`
 
-### 10.2 Loader API
+### 11.2 Loader API
 
 ```typescript
 // lib/story/loader.ts
@@ -722,10 +805,11 @@ interface BookBundle {
 
 function loadBook(bookId: string): Promise<BookBundle>;
 function loadLibrary(): Promise<Library>;
-function getIllustrationUrl(bookId: string, relativePath: string): string;
+function getLibraryAssetUrl(relativePath: string): string;
+function getIllustrationUrl(bookId: string, relativePath: string): string;  // legacy
 ```
 
-### 10.3 Progress API
+### 11.3 Progress API
 
 ```typescript
 // lib/story/progress.ts
@@ -735,7 +819,7 @@ function markCompleted(bookId: string): Promise<void>;
 function getResumePage(bookId: string, totalPages: number): Promise<number>;
 ```
 
-### 10.4 Page transition mapping
+### 11.4 Page transition mapping
 
 | `transition` value | Framer Motion variant |
 |--------------------|----------------------|
@@ -747,15 +831,15 @@ All transitions: **duration 0.5–0.7s**, ease `[0.4, 0, 0.2, 1]`. No bouncy spr
 
 ---
 
-## 11. Storage Layer
+## 12. Storage Layer
 
-### 11.1 Static content (`stories/`)
+### 12.1 Static content
 
 - Committed to repo (or imported via Coach backup)
 - Loaded at build time via dynamic imports or API route reading filesystem
-- Illustrations as WebP (optimized, consistent aspect ~4:5 portrait)
+- Illustrations: reusable assets in `public/assets/`; legacy flat SVGs in `public/stories/`
 
-### 11.2 IndexedDB (Dexie)
+### 12.2 IndexedDB (Dexie)
 
 Database name: `pips-backpack`
 
@@ -766,7 +850,7 @@ Database name: `pips-backpack`
 | `overrides` | `[bookId+file]` | Coach edits |
 | `drawings` | `id` | Optional saved draw-space artwork |
 
-### 11.3 Coach backup format
+### 12.3 Coach backup format
 
 Single JSON export:
 
@@ -789,21 +873,21 @@ Illustrations exported separately as ZIP (future: include in backup).
 
 ---
 
-## 12. Coach Mode
+## 13. Coach Mode
 
-### 12.1 Entry
+### 13.1 Entry
 
 - **Hidden gesture:** Long-press (800ms) on Pip logo in footer → `/coach`
 - Alternative: triple-tap on version string in settings area (accessibility note: also provide keyboard shortcut in coach docs)
 
-### 12.2 Authentication
+### 13.2 Authentication
 
 - PIN set on first coach visit (4–6 digits)
 - Hashed with bcryptjs, stored in IndexedDB
 - Session flag in sessionStorage after successful entry
 - Auto-lock on tab close (sessionStorage cleared)
 
-### 12.3 Capabilities
+### 13.3 Capabilities
 
 | Feature | Implementation |
 |---------|----------------|
@@ -815,53 +899,55 @@ Illustrations exported separately as ZIP (future: include in backup).
 | Export PDF | jspdf renders story pages + wonder questions |
 | Backup library | Download JSON (+ ZIP for images) |
 
-### 12.4 Security note
+### 13.4 Security note
 
 Client-side PIN is **obfuscation for child safety**, not enterprise security. Document this for stakeholders.
 
 ---
 
-## 13. PWA & Offline Strategy
+## 14. PWA & Offline Strategy
 
-### 13.1 Manifest
+### 14.1 Manifest
 
 - Name: "Pip's Backpack"
 - `display: standalone`
 - Warm theme colour: `#F5E6D3` (example — finalised in design tokens)
 - Icons: 192, 512 PNG
 
-### 13.2 Service worker
+### 14.2 Service worker
 
-- Precache: app shell, `library.json`, all enabled books' JSON
-- Runtime cache: illustrations (cache-first, max age 30 days)
+- Precache: app shell, `library.json`, asset manifest, all enabled books' JSON
+- Runtime cache: asset library SVGs + legacy illustrations (cache-first)
 - Offline fallback page with Pip illustration
 
-### 13.3 Caching tiers
+### 14.3 Caching tiers
 
 | Asset | Strategy |
 |-------|----------|
 | JS/CSS bundles | Precache |
 | Story JSON | Precache per enabled book |
-| Illustrations | Cache-first on first view |
+| Asset Library SVGs | Cache-first on first view |
+| Legacy illustrations | Cache-first on first view |
 | Narration audio (future) | Cache on demand |
 
 ---
 
-## 14. Animation & Motion Guidelines
+## 15. Animation & Motion Guidelines
 
 | Element | Motion | Duration |
 |---------|--------|----------|
 | Backpack float | `y: [0, -8, 0]` loop | 3s ease-in-out |
 | Backpack open | Lid rotate + objects stagger fade-up | 1.2s once |
 | Page transition | fade/slide per story config | 0.5–0.7s |
-| Pip blink | occasional subtle | random 4–8s |
+| Scene character float | `y: [0, -6, 0]` loop (Pip) | 2.5s ease-in-out |
+| Scene effect sparkle | scale + opacity pulse | 1.5s loop |
 | Button press | scale 0.97 | 0.15s |
 
 **Reduced motion:** Respect `prefers-reduced-motion` — disable float, use instant transitions.
 
 ---
 
-## 15. Accessibility & UX
+## 16. Accessibility & UX
 
 - Minimum touch target: 44×44px
 - Story text: 20px+ base on mobile; line-height 1.6
@@ -872,7 +958,7 @@ Client-side PIN is **obfuscation for child safety**, not enterprise security. Do
 - Colour contrast WCAG AA on text
 - Language: plain, warm, British English default (localisation-ready)
 
-### 15.1 Design tokens (Tailwind CSS variables)
+### 16.1 Design tokens
 
 ```css
 --color-cream: #FAF3E8;
@@ -888,7 +974,7 @@ Client-side PIN is **obfuscation for child safety**, not enterprise security. Do
 
 ---
 
-## 16. Future-Proofing
+## 17. Future-Proofing
 
 | Future need | Architectural hook |
 |-------------|-------------------|
@@ -897,21 +983,28 @@ Client-side PIN is **obfuscation for child safety**, not enterprise security. Do
 | **CMS** | JSON schemas match CMS collection shapes; loader unchanged |
 | **Cloud sync** | Replace override write with API; `loader` accepts remote URL |
 | **Multi-user child profiles** | Add `profileId` to progress table key |
-| **Analytics-free usage** | No analytics SDK; optional coach export for session notes |
+| **Scene animation** | `animation` fields on scenes/layers; renderer adds presets without JSON changes |
+| **Asset expansion** | Add entries to `assets/manifest.json` + CreatorBible; no engine refactor |
 
 ---
 
-## 17. Development Phases
+## 18. Development Phases
 
-### Phase 1 — Foundation (after approval)
+### Phase 1 — Foundation ✅
 - Next.js scaffold, Tailwind tokens, folder structure
 - Zod schemas + sample `book01` content
 - Story Engine + basic routing
 
-### Phase 2 — Core experience
+### Phase 2 — Core experience ✅
 - Home animation + backpack object grid
 - Wonder, Play, Pocket flows
 - Progress persistence
+
+### Phase 2.5 — Scene Engine ✅ (current)
+- Asset Library manifest + reusable SVG assets
+- Scene schema + SceneRenderer
+- CreatorBible canonical definitions
+- Migrate book01 to scene-based pages
 
 ### Phase 3 — Coach Mode
 - PIN gate, editors, overrides, backup
@@ -926,7 +1019,7 @@ Client-side PIN is **obfuscation for child safety**, not enterprise security. Do
 
 ---
 
-## 18. Open Questions
+## 19. Open Questions
 
 Please confirm or adjust before implementation:
 
@@ -945,12 +1038,9 @@ Please confirm or adjust before implementation:
 
 ## Approval
 
-Once this architecture is approved, implementation will begin with **Phase 1** on branch `cursor/initial-scaffold-989b`.
+Architecture v2.0 approved with Scene Engine + Asset Library + CreatorBible.
 
-**Please review and reply with:**
-- Approved as-is, or
-- Changes to specific sections, or
-- Answers to open questions
+Implementation in progress on branch `cursor/scene-engine-2ab3`.
 
 ---
 

@@ -5,75 +5,450 @@
   "pages": [
     {
       "id": "page-01",
-      "illustration": "illustrations/page-01.svg",
-      "text": "Every morning, before breakfast, Leo opened his bedroom door.\n\nAnd every morning…\n\nPip was already waiting.\n\nWearing his tiny yellow backpack.\n\nSmiling.\n\n\"Ready?\" asked Pip.\n\nLeo grinned.\n\n\"I wonder what adventure we'll find today.\"",
-      "pipExpression": "excited"
+      "scene": {
+        "id": "scene-01",
+        "background": { "id": "leo-bedroom", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-01",
+            "character": "leo",
+            "pose": "standing",
+            "expression": "excited",
+            "position": "left",
+            "animation": { "id": "leo-float", "preset": "float" }
+          },
+          {
+            "id": "pip-01",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "excited",
+            "position": "right",
+            "animation": { "id": "pip-float", "preset": "float" }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Every morning, before breakfast, Leo opened his bedroom door.\n\nAnd every morning…\n\nPip was already waiting.\n\nWearing his tiny yellow backpack.\n\nSmiling.\n\n\"Ready?\" asked Pip.\n\nLeo grinned.\n\n\"I wonder what adventure we'll find today.\""
     },
     {
       "id": "page-02",
-      "illustration": "illustrations/page-02.svg",
-      "text": "As they tiptoed down the hallway, Dad called from the kitchen.\n\n\"Morning, Leo! Shoes on please, we're leaving soon.\"\n\n\"Okay!\" called Leo.\n\nHe really meant it.\n\nLeo turned towards the front door.\n\nPip skipped beside him.",
-      "pipExpression": "neutral"
+      "scene": {
+        "id": "scene-02",
+        "background": { "id": "hallway-door", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-02",
+            "character": "leo",
+            "pose": "walking",
+            "expression": "neutral",
+            "position": "left"
+          },
+          {
+            "id": "pip-02",
+            "character": "pip",
+            "pose": "skipping",
+            "expression": "neutral",
+            "position": "right"
+          },
+          {
+            "id": "dad-02",
+            "character": "dad",
+            "pose": "kitchen-call",
+            "expression": "smiling",
+            "position": "far-right",
+            "transform": { "scale": 0.85, "zIndex": 10 }
+          }
+        ],
+        "dialogue": "mixed",
+        "speechBubbles": [
+          {
+            "id": "dad-bubble",
+            "asset": { "id": "shout-bubble", "category": "speech-bubble" },
+            "position": { "x": 75, "y": 35 },
+            "text": "Morning, Leo!"
+          }
+        ]
+      },
+      "text": "As they tiptoed down the hallway, Dad called from the kitchen.\n\n\"Morning, Leo! Shoes on please, we're leaving soon.\"\n\n\"Okay!\" called Leo.\n\nHe really meant it.\n\nLeo turned towards the front door.\n\nPip skipped beside him."
     },
     {
       "id": "page-03",
-      "illustration": "illustrations/page-03.svg",
-      "text": "Halfway there…\n\nPip stopped.\n\nHis big eyes grew even bigger.\n\nOn the floor sat a tiny green Lego brick.\n\n\"Look!\" whispered Pip.\n\nLeo picked it up carefully.\n\n\"I've been looking for this!\"",
-      "pipExpression": "curious"
+      "scene": {
+        "id": "scene-03",
+        "background": { "id": "hallway", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-03",
+            "character": "leo",
+            "pose": "reaching",
+            "expression": "curious",
+            "position": "left"
+          },
+          {
+            "id": "pip-03",
+            "character": "pip",
+            "pose": "peering",
+            "expression": "curious",
+            "position": "right",
+            "animation": { "id": "pip-peering", "preset": "float" }
+          }
+        ],
+        "objects": [
+          {
+            "id": "green-brick-03",
+            "asset": { "id": "green-brick", "category": "object" },
+            "position": "center",
+            "transform": { "zIndex": 15 }
+          }
+        ],
+        "speechBubbles": [
+          {
+            "id": "pip-look",
+            "asset": { "id": "whisper-bubble", "category": "speech-bubble" },
+            "position": { "x": 72, "y": 45 },
+            "text": "Look!"
+          }
+        ],
+        "dialogue": "mixed"
+      },
+      "text": "Halfway there…\n\nPip stopped.\n\nHis big eyes grew even bigger.\n\nOn the floor sat a tiny green Lego brick.\n\n\"Look!\" whispered Pip.\n\nLeo picked it up carefully.\n\n\"I've been looking for this!\""
     },
     {
       "id": "page-04",
-      "illustration": "illustrations/page-04.svg",
-      "text": "\"The spaceship!\" said Leo.\n\n\"It needs one more wing.\"\n\nThey hurried to Leo's room.\n\nLeo clicked the green brick into place.\n\nPip stepped back.\n\n\"It still looks a little wobbly.\"\n\nLeo nodded.\n\n\"It needs balancing.\"",
-      "pipExpression": "curious"
+      "scene": {
+        "id": "scene-04",
+        "background": { "id": "leo-bedroom", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-04",
+            "character": "leo",
+            "pose": "reaching",
+            "expression": "curious",
+            "position": "left"
+          },
+          {
+            "id": "pip-04",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "curious",
+            "position": "right"
+          }
+        ],
+        "props": [
+          {
+            "id": "spaceship-04",
+            "asset": { "id": "spaceship", "category": "prop" },
+            "position": "center",
+            "transform": { "scale": 1.2, "zIndex": 12 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "\"The spaceship!\" said Leo.\n\n\"It needs one more wing.\"\n\nThey hurried to Leo's room.\n\nLeo clicked the green brick into place.\n\nPip stepped back.\n\n\"It still looks a little wobbly.\"\n\nLeo nodded.\n\n\"It needs balancing.\""
     },
     {
       "id": "page-05",
-      "illustration": "illustrations/page-05.svg",
-      "text": "\"What if…\" said Pip slowly.\n\n\"…spaceships had two extra wings?\"\n\nLeo's eyes lit up.\n\n\"They'd fly even better!\"\n\nSoon there were bricks everywhere.\n\nBlue bricks. Grey bricks. Tiny transparent windows. Long white rockets.\n\nThe spaceship grew bigger and bigger.",
-      "pipExpression": "excited"
+      "scene": {
+        "id": "scene-05",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-05",
+            "character": "leo",
+            "pose": "sitting",
+            "expression": "excited",
+            "position": "left"
+          },
+          {
+            "id": "pip-05",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "excited",
+            "position": "right",
+            "animation": { "id": "pip-excited", "preset": "float" }
+          }
+        ],
+        "props": [
+          {
+            "id": "bricks-05",
+            "asset": { "id": "bricks-pile", "category": "prop" },
+            "position": { "x": 50, "y": 78 },
+            "transform": { "scale": 1.4, "zIndex": 11 }
+          },
+          {
+            "id": "spaceship-05",
+            "asset": { "id": "spaceship", "category": "prop" },
+            "position": { "x": 55, "y": 55 },
+            "transform": { "scale": 1.5, "zIndex": 13 }
+          }
+        ],
+        "effects": [
+          {
+            "id": "sparkle-05",
+            "asset": { "id": "sparkle", "category": "effect" },
+            "position": { "x": 60, "y": 40 },
+            "animation": { "id": "sparkle-anim", "preset": "sparkle" }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "\"What if…\" said Pip slowly.\n\n\"…spaceships had two extra wings?\"\n\nLeo's eyes lit up.\n\n\"They'd fly even better!\"\n\nSoon there were bricks everywhere.\n\nBlue bricks. Grey bricks. Tiny transparent windows. Long white rockets.\n\nThe spaceship grew bigger and bigger."
     },
     {
       "id": "page-06",
-      "illustration": "illustrations/page-06.svg",
-      "text": "Pip looked closely.\n\n\"Hmm…\"\n\n\"What?\"\n\n\"It doesn't have anywhere for the captain to sit.\"\n\nLeo gasped.\n\n\"It needs seats!\"\n\n\"And buttons!\"\n\n\"And a snack cupboard!\"",
-      "pipExpression": "curious"
+      "scene": {
+        "id": "scene-06",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-06",
+            "character": "leo",
+            "pose": "bust",
+            "expression": "curious",
+            "position": "left"
+          },
+          {
+            "id": "pip-06",
+            "character": "pip",
+            "pose": "peering",
+            "expression": "curious",
+            "position": "right"
+          }
+        ],
+        "props": [
+          {
+            "id": "spaceship-06",
+            "asset": { "id": "spaceship", "category": "prop" },
+            "position": "center",
+            "transform": { "scale": 1.6, "zIndex": 12 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Pip looked closely.\n\n\"Hmm…\"\n\n\"What?\"\n\n\"It doesn't have anywhere for the captain to sit.\"\n\nLeo gasped.\n\n\"It needs seats!\"\n\n\"And buttons!\"\n\n\"And a snack cupboard!\""
     },
     {
       "id": "page-07",
-      "illustration": "illustrations/page-07.svg",
-      "text": "Just then…\n\n\"Meeooow.\"\n\nWhiskers the cat squeezed into the cardboard spaceship box.\n\nLeo laughed.\n\n\"The captain has arrived!\"\n\nPip saluted.\n\n\"Captain Whiskers!\"\n\nThe cat purred proudly.",
-      "pipExpression": "excited"
+      "scene": {
+        "id": "scene-07",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-07",
+            "character": "leo",
+            "pose": "grinning",
+            "expression": "excited",
+            "position": "far-left"
+          },
+          {
+            "id": "pip-07",
+            "character": "pip",
+            "pose": "saluting",
+            "expression": "excited",
+            "position": "right"
+          },
+          {
+            "id": "whiskers-07",
+            "character": "whiskers",
+            "pose": "in-box",
+            "expression": "content",
+            "position": "center",
+            "transform": { "scale": 1.3, "zIndex": 25 }
+          }
+        ],
+        "props": [
+          {
+            "id": "box-07",
+            "asset": { "id": "cardboard-box", "category": "prop" },
+            "position": { "x": 50, "y": 70 },
+            "transform": { "scale": 1.5, "zIndex": 10 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Just then…\n\n\"Meeooow.\"\n\nWhiskers the cat squeezed into the cardboard spaceship box.\n\nLeo laughed.\n\n\"The captain has arrived!\"\n\nPip saluted.\n\n\"Captain Whiskers!\"\n\nThe cat purred proudly."
     },
     {
       "id": "page-08",
-      "illustration": "illustrations/page-08.svg",
-      "text": "\"If Whiskers is flying to the Moon…\" said Pip, \"…what will he eat?\"\n\nLeo thought very hard.\n\n\"Moon fish?\"\n\n\"Space biscuits?\"\n\n\"Cheese?\"\n\nBoth of them burst into giggles.",
-      "pipExpression": "excited"
+      "scene": {
+        "id": "scene-08",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-08",
+            "character": "leo",
+            "pose": "sitting",
+            "expression": "excited",
+            "position": "left"
+          },
+          {
+            "id": "pip-08",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "excited",
+            "position": "right"
+          },
+          {
+            "id": "whiskers-08",
+            "character": "whiskers",
+            "pose": "in-box",
+            "expression": "content",
+            "position": { "x": 55, "y": 75 },
+            "transform": { "scale": 1.2, "zIndex": 20 }
+          }
+        ],
+        "effects": [
+          {
+            "id": "giggle-08",
+            "asset": { "id": "giggle-lines", "category": "effect" },
+            "position": { "x": 50, "y": 30 },
+            "animation": { "id": "giggle-anim", "preset": "float" }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "\"If Whiskers is flying to the Moon…\" said Pip, \"…what will he eat?\"\n\nLeo thought very hard.\n\n\"Moon fish?\"\n\n\"Space biscuits?\"\n\n\"Cheese?\"\n\nBoth of them burst into giggles."
     },
     {
       "id": "page-09",
-      "illustration": "illustrations/page-09.svg",
-      "text": "Dad appeared at the bedroom door.\n\nHe smiled when he saw the enormous spaceship.\n\n\"It looks amazing.\"\n\nLeo beamed.\n\n\"We found the green brick!\"\n\n\"And then Captain Whiskers…\"\n\n\"And then…\"\n\nLeo stopped.\n\nDad smiled gently.\n\n\"Weren't you heading somewhere first?\"\n\nLeo blinked.\n\n\"I was?\"",
-      "pipExpression": "gentle"
+      "scene": {
+        "id": "scene-09",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-09",
+            "character": "leo",
+            "pose": "standing",
+            "expression": "gentle",
+            "position": "left"
+          },
+          {
+            "id": "pip-09",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "gentle",
+            "position": "right"
+          },
+          {
+            "id": "dad-09",
+            "character": "dad",
+            "pose": "doorway",
+            "expression": "gentle",
+            "position": "far-right",
+            "transform": { "scale": 0.9, "zIndex": 10 }
+          }
+        ],
+        "props": [
+          {
+            "id": "spaceship-09",
+            "asset": { "id": "spaceship", "category": "prop" },
+            "position": { "x": 45, "y": 65 },
+            "transform": { "scale": 1.4, "zIndex": 11 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Dad appeared at the bedroom door.\n\nHe smiled when he saw the enormous spaceship.\n\n\"It looks amazing.\"\n\nLeo beamed.\n\n\"We found the green brick!\"\n\n\"And then Captain Whiskers…\"\n\n\"And then…\"\n\nLeo stopped.\n\nDad smiled gently.\n\n\"Weren't you heading somewhere first?\"\n\nLeo blinked.\n\n\"I was?\""
     },
     {
       "id": "page-10",
-      "illustration": "illustrations/page-10.svg",
-      "text": "Leo looked around the room.\n\nThe spaceship. The cat. The bricks. The cardboard box.\n\nThen he looked down.\n\nHe was still wearing his slippers.\n\n\"Oh!\" he whispered.\n\n\"My shoes.\"",
-      "pipExpression": "gentle"
+      "scene": {
+        "id": "scene-10",
+        "background": { "id": "leo-bedroom-spaceship", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-10",
+            "character": "leo",
+            "pose": "slippers",
+            "expression": "gentle",
+            "position": "center",
+            "transform": { "zIndex": 30 }
+          },
+          {
+            "id": "pip-10",
+            "character": "pip",
+            "pose": "floating",
+            "expression": "gentle",
+            "position": "right"
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Leo looked around the room.\n\nThe spaceship. The cat. The bricks. The cardboard box.\n\nThen he looked down.\n\nHe was still wearing his slippers.\n\n\"Oh!\" he whispered.\n\n\"My shoes.\""
     },
     {
       "id": "page-11",
-      "illustration": "illustrations/page-11.svg",
-      "text": "\"I thought I'd only stopped for a tiny moment.\"\n\nDad nodded.\n\n\"I know.\"\n\nLeo looked puzzled.\n\n\"It still feels like a tiny moment.\"\n\nPip looked puzzled too.\n\n\"It felt tiny to me as well.\"\n\nNobody was cross.\n\nEverybody was thinking.",
-      "pipExpression": "gentle"
+      "scene": {
+        "id": "scene-11",
+        "background": { "id": "leo-bedroom", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-11",
+            "character": "leo",
+            "pose": "bust",
+            "expression": "gentle",
+            "position": "left"
+          },
+          {
+            "id": "pip-11",
+            "character": "pip",
+            "pose": "puzzled",
+            "expression": "gentle",
+            "position": "right"
+          },
+          {
+            "id": "dad-11",
+            "character": "dad",
+            "pose": "kneeling",
+            "expression": "gentle",
+            "position": "far-right",
+            "transform": { "scale": 0.85, "zIndex": 10 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "\"I thought I'd only stopped for a tiny moment.\"\n\nDad nodded.\n\n\"I know.\"\n\nLeo looked puzzled.\n\n\"It still feels like a tiny moment.\"\n\nPip looked puzzled too.\n\n\"It felt tiny to me as well.\"\n\nNobody was cross.\n\nEverybody was thinking."
     },
     {
       "id": "page-12",
-      "illustration": "illustrations/page-12.svg",
-      "text": "Dad picked up the little green brick.\n\nHe placed it gently into Pip's tiny backpack.\n\n\"Looks like today's adventure started here.\"\n\nLeo smiled.\n\n\"It was a really good adventure.\"\n\nPip smiled too.\n\n\"It was.\"\n\nDad winked.\n\n\"And next time…\"\n\nLeo laughed.\n\n\"…maybe the shoes can come first.\"\n\nPip zipped up the backpack.\n\nAnother adventure. Another treasure. Another story to remember.",
-      "pipExpression": "gentle"
+      "scene": {
+        "id": "scene-12",
+        "background": { "id": "hallway", "category": "background" },
+        "characters": [
+          {
+            "id": "leo-12",
+            "character": "leo",
+            "pose": "grinning",
+            "expression": "gentle",
+            "position": "left"
+          },
+          {
+            "id": "pip-12",
+            "character": "pip",
+            "pose": "backpack-zipped",
+            "expression": "gentle",
+            "position": "right"
+          },
+          {
+            "id": "dad-12",
+            "character": "dad",
+            "pose": "winking",
+            "expression": "smiling",
+            "position": "far-right",
+            "transform": { "scale": 0.85, "zIndex": 10 }
+          }
+        ],
+        "objects": [
+          {
+            "id": "green-brick-12",
+            "asset": { "id": "green-brick", "category": "object" },
+            "position": { "x": 78, "y": 68 },
+            "transform": { "scale": 0.7, "zIndex": 35 }
+          }
+        ],
+        "dialogue": "narration"
+      },
+      "text": "Dad picked up the little green brick.\n\nHe placed it gently into Pip's tiny backpack.\n\n\"Looks like today's adventure started here.\"\n\nLeo smiled.\n\n\"It was a really good adventure.\"\n\nPip smiled too.\n\n\"It was.\"\n\nDad winked.\n\n\"And next time…\"\n\nLeo laughed.\n\n\"…maybe the shoes can come first.\"\n\nPip zipped up the backpack.\n\nAnother adventure. Another treasure. Another story to remember."
     }
   ]
 }

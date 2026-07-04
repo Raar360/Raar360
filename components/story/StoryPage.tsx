@@ -5,7 +5,10 @@ import type { StoryPage as StoryPageType, StoryTransition } from "@/types";
 import { Pip } from "@/components/characters/Pip";
 import { StoryIllustration } from "./StoryIllustration";
 import { StoryText } from "./StoryText";
+import { SceneRenderer } from "@/components/scene/SceneRenderer";
+import { useAssetManifest } from "@/components/scene/useAssetManifest";
 import { pageVariants } from "@/lib/utils/motion";
+import { toPipExpression } from "@/lib/scene/characters";
 
 interface StoryPageProps {
   bookId: string;
@@ -16,6 +19,12 @@ interface StoryPageProps {
 export function StoryPage({ bookId, page, transition }: StoryPageProps) {
   const reduceMotion = useReducedMotion();
   const variant = pageVariants[transition];
+  const { assetMap, loading } = useAssetManifest();
+  const alt = page.text.split(".")[0];
+
+  const pipOverlayExpression =
+    page.pipExpression ??
+    page.scene?.characters.find((c) => c.character === "pip")?.expression;
 
   return (
     <AnimatePresence mode="wait">
@@ -27,15 +36,17 @@ export function StoryPage({ bookId, page, transition }: StoryPageProps) {
         transition={variant.transition}
         className="flex flex-col gap-6"
       >
-        <StoryIllustration
-          bookId={bookId}
-          src={page.illustration}
-          alt={page.text.split(".")[0]}
-        />
+        {page.scene && !loading ? (
+          <SceneRenderer scene={page.scene} assetMap={assetMap} alt={alt} />
+        ) : page.illustration ? (
+          <StoryIllustration bookId={bookId} src={page.illustration} alt={alt} />
+        ) : (
+          <div className="aspect-[4/5] w-full animate-pulse rounded-2xl bg-cream-shadow" />
+        )}
         <StoryText text={page.text} />
-        {page.pipExpression && (
+        {pipOverlayExpression && !page.scene && (
           <div className="flex justify-end">
-            <Pip expression={page.pipExpression} size="sm" />
+            <Pip expression={toPipExpression(pipOverlayExpression)} size="sm" />
           </div>
         )}
       </motion.div>
