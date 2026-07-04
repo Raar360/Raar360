@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#FAF3E8"/>
+  <ellipse cx="200" cy="200" rx="80" ry="90" fill="#F5D0A9" stroke="#3D2914" stroke-width="3"/>
+  <ellipse cx="200" cy="280" rx="30" ry="25" fill="#E8A598" opacity="0.5"/>
+  <circle cx="180" cy="190" r="5" fill="#3D2914"/>
+  <circle cx="220" cy="190" r="5" fill="#3D2914"/>
+  <path d="M185 215 Q200 205 215 215" fill="none" stroke="#3D2914" stroke-width="2"/>
+  <text x="200" y="400" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5C4033">fizzy</text>
+</svg>

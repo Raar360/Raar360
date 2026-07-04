@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "bookId": "book01",
+  "transition": "fade",
+  "pages": [
+    {
+      "id": "page-01",
+      "illustration": "illustrations/page-01.svg",
+      "text": "Leo was building a tower with his green bricks. It was wobbly, but he was trying his best.",
+      "pipExpression": "curious"
+    },
+    {
+      "id": "page-02",
+      "illustration": "illustrations/page-02.svg",
+      "text": "Then the tower fell. Leo felt something warm rising inside him, like a tiny volcano waking up.",
+      "pipExpression": "curious"
+    },
+    {
+      "id": "page-03",
+      "illustration": "illustrations/page-03.svg",
+      "text": "His hands felt tight. His tummy felt fizzy. Leo didn't mean to feel this way — it just arrived.",
+      "pipExpression": "gentle"
+    },
+    {
+      "id": "page-04",
+      "illustration": "illustrations/page-04.svg",
+      "text": "Pip noticed. \"Something interesting is happening inside you,\" Pip whispered, with kind eyes.",
+      "pipExpression": "excited"
+    },
+    {
+      "id": "page-05",
+      "illustration": "illustrations/page-05.svg",
+      "text": "Leo sat down and breathed slowly. The warm feeling didn't vanish — but it stopped bubbling quite so fast.",
+      "pipExpression": "gentle"
+    }
+  ]
+}

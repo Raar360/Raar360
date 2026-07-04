@@ -1,0 +1,8 @@
+{
+  "id": "book01",
+  "title": "When Feelings Bubble Up",
+  "object": "volcano",
+  "characters": ["leo", "pip"],
+  "ageRange": { "min": 5, "max": 9 },
+  "tags": ["feelings", "volcano"]
+}

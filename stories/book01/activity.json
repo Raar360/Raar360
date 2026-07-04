@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "bookId": "book01",
+  "type": "tap-explore",
+  "title": "Explore the Volcano",
+  "instructions": "Tap the gentle spots to explore. There is no wrong way.",
+  "background": "illustrations/activity-bg.svg",
+  "hotspots": [
+    {
+      "id": "steam",
+      "label": "Steam",
+      "x": 50,
+      "y": 25,
+      "revealText": "Steam rises and floats away — feelings can move through us too."
+    },
+    {
+      "id": "ground",
+      "label": "Ground",
+      "x": 30,
+      "y": 75,
+      "revealText": "Leo felt steady ground beneath him when he sat down."
+    },
+    {
+      "id": "heart",
+      "label": "Heart",
+      "x": 70,
+      "y": 55,
+      "revealText": "Kindness toward yourself is always allowed."
+    }
+  ]
+}

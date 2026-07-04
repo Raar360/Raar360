@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "books": [
+    {
+      "id": "book01",
+      "object": "volcano",
+      "title": "When Feelings Bubble Up",
+      "subtitle": "Leo and the warm volcano",
+      "sortOrder": 1,
+      "enabled": true
+    }
+  ]
+}

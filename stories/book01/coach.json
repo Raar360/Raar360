@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "bookId": "book01",
+  "wonder": {
+    "intro": "Take your time. Wonder together.",
+    "questions": [
+      {
+        "id": "w1",
+        "text": "Have you ever felt something warm rising inside you, like Leo?",
+        "pipPrompt": "Invite the child to share without fixing."
+      },
+      {
+        "id": "w2",
+        "text": "Where in your body do big feelings sometimes show up?",
+        "pipPrompt": "Notice, don't diagnose."
+      },
+      {
+        "id": "w3",
+        "text": "What helps you when feelings bubble up?",
+        "pipPrompt": "Celebrate whatever they share."
+      }
+    ]
+  },
+  "pocket": {
+    "reflection": "Sometimes feelings arrive like a warm volcano — and that's okay. You can notice them, breathe, and know they will settle.",
+    "pipLine": "Pip keeps interesting things safe in the pocket."
+  }
+}
