@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { getIllustrationUrl } from "@/lib/utils/assets";
+import { comicPanelClass } from "@/lib/art/style";
 import { cn } from "@/lib/utils/cn";
 
 interface StoryIllustrationProps {
@@ -17,7 +18,8 @@ export function StoryIllustration({ bookId, src, alt, className }: StoryIllustra
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden rounded-soft border-2 border-outline/15 bg-white/50 shadow-gentle",
+        comicPanelClass,
+        "relative w-full overflow-hidden",
         "aspect-[4/5] max-h-[min(52dvh,420px)] sm:max-h-none",
         className,
       )}

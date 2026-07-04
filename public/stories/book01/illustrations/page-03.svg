@@ -1,9 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
   <rect width="400" height="500" fill="#FAF3E8"/>
-  <ellipse cx="200" cy="200" rx="80" ry="90" fill="#F5D0A9" stroke="#3D2914" stroke-width="3"/>
-  <ellipse cx="200" cy="280" rx="30" ry="25" fill="#E8A598" opacity="0.5"/>
-  <circle cx="180" cy="190" r="5" fill="#3D2914"/>
-  <circle cx="220" cy="190" r="5" fill="#3D2914"/>
-  <path d="M185 215 Q200 205 215 215" fill="none" stroke="#3D2914" stroke-width="2"/>
-  <text x="200" y="400" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#5C4033">fizzy</text>
+  <rect x="0" y="400" width="400" height="100" fill="#D4C4A8"/>
+  <!-- Leo sitting, hands on tummy -->
+  <ellipse cx="200" cy="370" rx="50" ry="10" fill="#35629E" stroke="#2C1810" stroke-width="2"/>
+  <path d="M160 340 L155 370 L245 370 L240 340 Q200 320 160 340Z" fill="#5CB85C" stroke="#2C1810" stroke-width="2.5"/>
+  <ellipse cx="200" cy="300" rx="26" ry="28" fill="#F4C9A0" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M174 288 C172 270 186 258 200 258 C214 258 228 270 226 288" fill="#6B4423" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="190" cy="298" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="210" cy="298" rx="4" ry="5" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <circle cx="190" cy="299" r="2.5" fill="#2C1810"/>
+  <circle cx="210" cy="299" r="2.5" fill="#2C1810"/>
+  <path d="M192 312 Q200 308 208 312" fill="none" stroke="#2C1810" stroke-width="2"/>
+  <!-- Hands on tummy -->
+  <ellipse cx="175" cy="335" rx="12" ry="10" fill="#F4C9A0" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="225" cy="335" rx="12" ry="10" fill="#F4C9A0" stroke="#2C1810" stroke-width="2"/>
+  <!-- Fizzy tummy glow -->
+  <ellipse cx="200" cy="340" rx="30" ry="22" fill="#E8A598" opacity="0.25"/>
+  <circle cx="185" cy="335" r="4" fill="#F5C4BC" opacity="0.8"/>
+  <circle cx="200" cy="330" r="3" fill="#F5C4BC" opacity="0.8"/>
+  <circle cx="215" cy="336" r="4" fill="#F5C4BC" opacity="0.8"/>
+  <circle cx="192" cy="345" r="3" fill="#F5C4BC" opacity="0.6"/>
+  <circle cx="208" cy="343" r="3" fill="#F5C4BC" opacity="0.6"/>
+  <!-- Tight hands visual -->
+  <text x="200" y="180" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">hands tight</text>
+  <text x="200" y="205" text-anchor="middle" font-family="Nunito,sans-serif" font-size="16" font-weight="600" fill="#5C4033">tummy fizzy</text>
 </svg>

@@ -3,10 +3,11 @@
 :root {
   --color-cream: #faf3e8;
   --color-warm-brown: #5c4033;
-  --color-soft-blue: #7eb8da;
-  --color-golden: #f4c542;
+  --color-soft-blue: #6eb5e0;
+  --color-golden: #f5c842;
   --color-blush: #e8a598;
-  --color-outline: #3d2914;
+  --color-outline: #2c1810;
+  --color-leo-green: #5cb85c;
   --radius-soft: 1.25rem;
 }
 

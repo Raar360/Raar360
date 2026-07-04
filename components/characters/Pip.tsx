@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils/cn";
+import { comicArt } from "@/lib/art/style";
 import type { PipExpression } from "@/types";
 
 const sizes = {
@@ -18,9 +19,9 @@ interface PipProps {
 
 export function Pip({ expression = "neutral", size = "md", className }: PipProps) {
   const reduceMotion = useReducedMotion();
+  const { outline, pipBody, pipBodyShadow, pipFluff, pipBackpack, pipBackpackShadow } = comicArt;
 
-  const eyeScaleY =
-    expression === "excited" ? 1.15 : expression === "gentle" ? 0.92 : 1;
+  const eyeRy = expression === "excited" ? 13 : expression === "gentle" ? 10 : 12;
 
   return (
     <motion.div
@@ -29,25 +30,40 @@ export function Pip({ expression = "neutral", size = "md", className }: PipProps
       transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
     >
       <svg viewBox="0 0 100 100" className="h-full w-full drop-shadow-gentle" aria-hidden>
-        <ellipse cx="50" cy="58" rx="34" ry="30" fill="#7EB8DA" stroke="#3D2914" strokeWidth="3" />
-        <ellipse cx="36" cy="50" rx="10" ry={12 * eyeScaleY} fill="white" stroke="#3D2914" strokeWidth="2" />
-        <ellipse cx="64" cy="50" rx="10" ry={12 * eyeScaleY} fill="white" stroke="#3D2914" strokeWidth="2" />
-        <circle cx="36" cy="52" r="5" fill="#3D2914" />
-        <circle cx="64" cy="52" r="5" fill="#3D2914" />
+        {/* Antennae */}
+        <line x1="38" y1="22" x2="34" y2="8" stroke={outline} strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="62" y1="22" x2="66" y2="8" stroke={outline} strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="34" cy="8" r="3" fill={pipFluff} stroke={outline} strokeWidth="2" />
+        <circle cx="66" cy="8" r="3" fill={pipFluff} stroke={outline} strokeWidth="2" />
+        {/* Fluffy body */}
+        <ellipse cx="50" cy="58" rx="32" ry="28" fill={pipBodyShadow} />
+        <ellipse cx="50" cy="55" rx="32" ry="28" fill={pipBody} stroke={outline} strokeWidth="2.5" />
+        <ellipse cx="38" cy="48" rx="8" ry="10" fill={pipFluff} opacity="0.5" />
+        <ellipse cx="62" cy="48" rx="8" ry="10" fill={pipFluff} opacity="0.5" />
+        {/* Big expressive eyes */}
+        <ellipse cx="38" cy="52" rx="11" ry={eyeRy} fill="white" stroke={outline} strokeWidth="2" />
+        <ellipse cx="62" cy="52" rx="11" ry={eyeRy} fill="white" stroke={outline} strokeWidth="2" />
+        <circle cx="38" cy="54" r="5" fill={outline} />
+        <circle cx="62" cy="54" r="5" fill={outline} />
+        <circle cx="40" cy="52" r="1.5" fill="white" />
+        <circle cx="64" cy="52" r="1.5" fill="white" />
+        {/* Mouth */}
         {expression === "excited" && (
-          <path d="M38 68 Q50 78 62 68" fill="none" stroke="#3D2914" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M36 70 Q50 80 64 70" fill="none" stroke={outline} strokeWidth="2.5" strokeLinecap="round" />
         )}
         {expression === "curious" && (
-          <circle cx="50" cy="66" r="3" fill="#3D2914" />
+          <ellipse cx="50" cy="70" rx="4" ry="5" fill={outline} />
         )}
         {expression === "gentle" && (
-          <path d="M40 67 Q50 72 60 67" fill="none" stroke="#3D2914" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M38 70 Q50 76 62 70" fill="none" stroke={outline} strokeWidth="2.5" strokeLinecap="round" />
         )}
         {expression === "neutral" && (
-          <path d="M42 67 L58 67" fill="none" stroke="#3D2914" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M40 70 L60 70" fill="none" stroke={outline} strokeWidth="2.5" strokeLinecap="round" />
         )}
-        <rect x="62" y="62" width="18" height="14" rx="3" fill="#F4C542" stroke="#3D2914" strokeWidth="2" />
-        <path d="M68 62 L74 54 L80 62" fill="#F4C542" stroke="#3D2914" strokeWidth="2" />
+        {/* Yellow backpack */}
+        <rect x="64" y="62" width="16" height="13" rx="2" fill={pipBackpackShadow} />
+        <rect x="62" y="60" width="16" height="13" rx="2" fill={pipBackpack} stroke={outline} strokeWidth="2" />
+        <path d="M66 60 L70 52 L74 60" fill={pipBackpack} stroke={outline} strokeWidth="1.5" />
       </svg>
     </motion.div>
   );

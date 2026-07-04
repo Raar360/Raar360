@@ -1,7 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
   <rect width="400" height="300" fill="#FAF3E8"/>
-  <path d="M120 220 L200 80 L280 220 Z" fill="#E8A598" stroke="#3D2914" stroke-width="3"/>
-  <ellipse cx="200" cy="90" rx="25" ry="15" fill="#D4D4D4" opacity="0.6"/>
-  <ellipse cx="180" cy="75" rx="15" ry="10" fill="#D4D4D4" opacity="0.5"/>
-  <ellipse cx="220" cy="70" rx="18" ry="12" fill="#D4D4D4" opacity="0.5"/>
+  <rect x="0" y="240" width="400" height="60" fill="#D4C4A8"/>
+  <!-- Gentle volcano -->
+  <path d="M120 230 L200 80 L280 230 Z" fill="#4E9A4E" stroke="#2C1810" stroke-width="2.5"/>
+  <path d="M140 230 L200 100 L260 230 Z" fill="#6BB86B" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="200" cy="95" rx="20" ry="12" fill="#E8A598" opacity="0.5"/>
+  <path d="M190 100 Q200 85 210 100" fill="none" stroke="#E8A598" stroke-width="2"/>
+  <!-- Soft steam -->
+  <ellipse cx="185" cy="70" rx="15" ry="10" fill="#D4D4D4" opacity="0.4"/>
+  <ellipse cx="200" cy="55" rx="18" ry="12" fill="#D4D4D4" opacity="0.35"/>
+  <ellipse cx="215" cy="65" rx="14" ry="9" fill="#D4D4D4" opacity="0.4"/>
+  <!-- Pip peeking -->
+  <ellipse cx="310" cy="210" rx="24" ry="20" fill="#6EB5E0" stroke="#2C1810" stroke-width="2"/>
+  <ellipse cx="303" cy="206" rx="7" ry="9" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <ellipse cx="317" cy="206" rx="7" ry="9" fill="white" stroke="#2C1810" stroke-width="1.5"/>
+  <circle cx="303" cy="208" r="3" fill="#2C1810"/>
+  <circle cx="317" cy="208" r="3" fill="#2C1810"/>
 </svg>

@@ -1,7 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <rect width="512" height="512" rx="96" fill="#FAF3E8"/>
-  <rect x="128" y="180" width="256" height="220" rx="32" fill="#F4C542" stroke="#3D2914" stroke-width="12"/>
-  <path d="M128 180 Q256 80 384 180 L384 220 Q256 140 128 220 Z" fill="#E8A84C" stroke="#3D2914" stroke-width="12"/>
-  <ellipse cx="380" cy="340" rx="48" ry="42" fill="#7EB8DA" stroke="#3D2914" stroke-width="8"/>
-  <rect x="400" y="352" width="36" height="28" rx="6" fill="#F4C542" stroke="#3D2914" stroke-width="6"/>
+  <rect x="128" y="180" width="256" height="220" rx="32" fill="#D4A817" stroke="#2C1810" stroke-width="12"/>
+  <rect x="126" y="178" width="256" height="220" rx="32" fill="#F5C842" stroke="#2C1810" stroke-width="12"/>
+  <path d="M128 180 Q256 80 384 180 L384 220 Q256 140 128 220 Z" fill="#E8A84C" stroke="#2C1810" stroke-width="12"/>
+  <ellipse cx="380" cy="340" rx="52" ry="46" fill="#4A95C4" stroke="#2C1810" stroke-width="8"/>
+  <ellipse cx="380" cy="335" rx="52" ry="46" fill="#6EB5E0" stroke="#2C1810" stroke-width="8"/>
+  <line x1="350" y1="295" x2="340" y2="270" stroke="#2C1810" stroke-width="6" stroke-linecap="round"/>
+  <line x1="410" y1="295" x2="420" y2="270" stroke="#2C1810" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="360" cy="330" rx="16" ry="20" fill="white" stroke="#2C1810" stroke-width="4"/>
+  <ellipse cx="400" cy="330" rx="16" ry="20" fill="white" stroke="#2C1810" stroke-width="4"/>
+  <circle cx="360" cy="335" r="8" fill="#2C1810"/>
+  <circle cx="400" cy="335" r="8" fill="#2C1810"/>
+  <rect x="410" y="355" width="36" height="28" rx="6" fill="#F5C842" stroke="#2C1810" stroke-width="6"/>
 </svg>
